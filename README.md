@@ -1,10 +1,11 @@
-propile
-=======
+# propile
 
 Community Conference Program Compiler
 
 
 ## Installation
+
+### Sysadmin
 
 Some environment variables are needed to set up the app :
 
@@ -42,6 +43,55 @@ Then, ensure tests are passing :
     bundle exec rspec spec/
 
 
+### Setup
+
 To populate database the very first time you run the app :
 
     bundle exec rake db:seed
+
+
+This will create a `Session` and a few `Presenter`s and `Comment`s.
+
+To create a user for yourself :
+
+    email, pass = 'your email', 'your pass'
+
+    me = Account.new
+    me.email = email
+    me.maintainer = true # set to false if you want a presenter account
+    me.password = pass
+    me.password_confirmation = pass
+    me.confirmed_at = Time.now
+    me.save
+    me.presenter.create!
+
+You can now log in. Please note that even if you set yourself as a maintainer,
+a presenter profile should still be created as `me.presenter` to avoid app
+crashing when reaching dashboard.
+
+
+## Findings about design
+
+### Sessions and sessions
+
+There are two kind of session in this app :
+
+* sessions handled by `SessionsController` : sessions in a conference point of view
+* sessions handled by `Account::SessionsController` : your regular session, aka log status
+
+The `Session` model is related to former one.
+
+
+### Creating accounts
+
+Even if there's an `AccountsController`, it seems it's expected to create
+accounts manually from rails console :
+
+* `accounts/new` is accessible only for logged in users
+* this form displays no input anyway, except the submit one
+
+There's also an ajax form in configuration page, but I just could not getting
+it to work properly.
+
+So, as for now, let just create users the same way you did to create your own,
+just not setting them as maintainer.
