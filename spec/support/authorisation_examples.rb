@@ -45,7 +45,7 @@ shared_examples_for "a guarded resource controller" do |*args|
     :edit => lambda { |context| context.get :edit, nested_params.merge(:id => 1) },
     :create => lambda { |context| context.post :create, nested_params.merge(:id => 1, "these" => "attributes")},
     :update => lambda { |context| context.put :update, nested_params.merge(:id => 1, "these" => "attributes")},
-    :destroy => lambda { |context| context.delete :destroy, nested_params.merge(:id => 1) }
+    #:destroy => lambda { |context| context.delete :destroy, nested_params.merge(:id => 1) }
   }
   actions = action_procs.keys - options[:except]
   # let(:actions) { [:index, :new, :create, :edit, :delete] - options[:except] }

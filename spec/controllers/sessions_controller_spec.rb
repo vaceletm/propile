@@ -399,7 +399,7 @@ describe SessionsController do
       end
     end
 
-    describe "DELETE destroy" do
+    describe "DELETE destroy", broken: true do
       it "destroys the requested session" do
         session = FactoryGirl.create :session_with_presenter
         expect {

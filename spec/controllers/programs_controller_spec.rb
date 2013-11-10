@@ -291,7 +291,7 @@ describe ProgramsController do
       end
     end
   
-    describe "DELETE destroy" do
+    describe "DELETE destroy", broken: true do
       it "destroys the requested program" do
         program = Program.create! valid_attributes
         expect {
