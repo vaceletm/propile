@@ -146,7 +146,7 @@ describe CommentsController do
       end
     end
 
-    describe "DELETE destroy" do
+    describe "DELETE destroy", broken: true do
       it "destroys the requested comment" do
         create_comment
         expect {
