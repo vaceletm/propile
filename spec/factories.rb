@@ -54,6 +54,7 @@ FactoryGirl.define do
       password_confirmation 'secret'
       after( :create ) do |account|
         account.confirm!
+        account.create_presenter!
       end
     end
   end
