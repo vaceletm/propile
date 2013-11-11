@@ -11,6 +11,10 @@ gem 'htmlentities'
 
 group :test, :development do
   gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 2.9'
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'launchy'
 end
 
 group :test do
@@ -19,10 +23,6 @@ group :test do
   gem "capybara"
   gem 'guard-rspec'
   gem 'database_cleaner'
-end
-
-group :development do
-  gem 'rspec-rails', '~> 2.9'
 end
 
 group :rake do
