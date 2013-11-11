@@ -22,3 +22,5 @@ production:
   database: <%= ENV[ 'PROPILE_PROD_DB_NAME' ] %>
   username: <%= ENV[ 'PROPILE_PROD_DB_USER' ] %>
   password: <%= ENV[ 'PROPILE_PROD_DB_PASS' ] %>
+  host: <%= ENV[ 'PROPILE_PROD_DB_HOST' ] %>
+  
