@@ -21,6 +21,12 @@ module Propile
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    # Heroku has a step in the build process to precompile your assets into your slug,
+    # so they’re readily available. To speed up asset precompiles, it’s recommended
+    # that you tell Rails to only partially load your app. Heroku also, does not
+    # provide the whole app environment to the build process, so this is required
+    config.assets.initialize_on_precompile = false
+
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
     config.autoload_paths += %W(#{config.root}/lib)
@@ -74,13 +80,11 @@ module Propile
     end
 
     def self.mail_subject_prefix
-      "[Propile XP Days 2013] "
+      "[Propile Agile Conf 2014]"
     end
 
     def self.version
       File.readlines('VERSION').first.strip[/[^\s]*/]
     end
   end
-
-  
 end

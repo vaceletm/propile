@@ -10,9 +10,10 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="menu">
+      <%= image_tag "logo_agile_conf_2014.png", :size => "100x100" %>
+
+      <div class="menu">
       <nav id="header-navigation">
-        <%= image_tag "logo-200.png", :size => "100x50" %>
         <% if signed_in? %>
           <%= "Signed in as" %>&nbsp;<%= link_to current_account.email , current_account.presenter %>
           <%= current_account.maintainer? ? "(maintainer)" : "" %>
@@ -56,7 +57,7 @@
     <hr/>
     <div class="submenu"> <%= yield :sub_menu %> </div>
     <div class="alignright"> 
-      <a href="mailto:sessions@xpday.net">problems or questions
+      <a href="mailto:contact@conference-agile.fr">problems or questions
       (<%= Propile::Application.version %>)
       </a> 
     </div> 

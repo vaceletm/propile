@@ -1,3 +1,5 @@
+# 0.5.0
+  Fork from rwestgeest/propile to make it work with PostgreSQL and to be deployed on Heroku for Agile Conference 2014
 # 0.4.36
 # 0.4.35
 # 0.4.34

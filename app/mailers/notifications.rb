@@ -1,6 +1,6 @@
 class Notifications < ActionMailer::Base
  
-  FromAddress = "sessions@xpday.net"
+  FromAddress = "contact@conference-agile.fr"
   default from: FromAddress
   helper :application
 
