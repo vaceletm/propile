@@ -1,23 +1,24 @@
-development:
+base_db: &base_db
   adapter: postgresql
   encoding: unicode
-  database: <%= ENV[ 'PROPILE_DEV_DB_NAME' ] %>
+  host: localhost
+  port: 5432
   pool: 5
+
+development:
+  <<: *base_db
+  database: <%= ENV[ 'PROPILE_DEV_DB_NAME' ] %>
   username: <%= ENV[ 'PROPILE_DEV_DB_USER' ] %>
   password: <%= ENV[ 'PROPILE_DEV_DB_PASS' ] %>
 
 test:
-  adapter: postgresql
-  encoding: unicode
+  <<: *base_db
   database: <%= ENV[ 'PROPILE_TEST_DB_NAME' ] %>
-  pool: 5
   username: <%= ENV[ 'PROPILE_TEST_DB_USER' ] %>
   password: <%= ENV[ 'PROPILE_TEST_DB_PASS' ] %>
 
 production:
-  adapter: postgresql
-  encoding: unicode
+  <<: *base_db
   database: <%= ENV[ 'PROPILE_PROD_DB_NAME' ] %>
-  pool: 5
   username: <%= ENV[ 'PROPILE_PROD_DB_USER' ] %>
   password: <%= ENV[ 'PROPILE_PROD_DB_PASS' ] %>
