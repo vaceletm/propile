@@ -5,7 +5,7 @@ describe Presenter do
   def create_presenter
     presenter
   end
-  let (:maintainer) { FactoryGirl.create :presenter, :account =>  (FactoryGirl.create :confirmed_account)}
+  let (:maintainer) { create( :confirmed_account).presenter }
   def create_maintainer
     maintainer
   end

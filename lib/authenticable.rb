@@ -76,6 +76,13 @@ module Authenticable
     end
   end
 
+  def generate_confirmation_token
+    while (true) 
+      self.confirmation_token = TokenGenerator.generate_token
+      return confirmation_token if unique_token?(confirmation_token)
+    end
+  end
+
   private 
   def unique_token? token
     return ! self.class.find_by_authentication_token(token)

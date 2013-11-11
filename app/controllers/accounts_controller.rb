@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+  skip_before_filter :authorize_action, only: :confirm
   def index
     @accounts = Account.all
   end
@@ -32,6 +33,22 @@ class AccountsController < ApplicationController
       redirect_to @account, notice: 'Account was successfully updated.'
     else
       render action: "edit"
+    end
+  end
+
+  def confirm
+    @account = Account.where( confirmation_token: params[ :id ] ).first
+
+    if @account
+      if @account.confirmed?
+        redirect_to root_path
+      else
+        @account.update_attribute( :confirmed_at, Time.now )
+        sign_in @account
+        redirect_to edit_account_password_path
+      end
+    else
+      redirect_to root_path, alert: "We could not find your account. Please contact administrators."
     end
   end
 

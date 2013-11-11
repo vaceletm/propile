@@ -41,6 +41,19 @@ describe Account do
     end
   end
 
+  describe 'create' do
+    before :each do
+      @account = Account.new
+      @account.email = 'test@example.com'
+      @account.role = 'maintainer'
+      @account.save!
+    end
+
+    it 'sets confirmation_token' do
+      @account.confirmation_token.should_not be_nil
+    end
+  end
+
   describe 'authenticate' do
     let!(:account) { FactoryGirl.create :maintainer_account } 
 

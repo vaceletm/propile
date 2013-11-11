@@ -7,11 +7,12 @@ class Account < ActiveRecord::Base
   include Authenticable 
   on_account_reset :send_reset_message
 
+  before_create :generate_confirmation_token
   before_create :generate_authentication_token
 
   attr_accessible :email, :password, :password_confirmation, :role, :last_login
 
-  has_one :presenter
+  has_one :presenter, dependent: :destroy, inverse_of: :account
 
   attr_accessor :password
   validates_confirmation_of :password

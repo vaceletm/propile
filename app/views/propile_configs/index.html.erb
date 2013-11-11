@@ -39,28 +39,31 @@
       <!--td> <%= f.text_field  "new_last_login", :value => current_account.last_login %> </td--> 
       <td> <%= f.text_field  "new_last_login", :value => session[:previous_login] %> </td> 
       <td> <%= f.submit "update" %> </td>
-      <td> <i> time of previous login (in session) --> to test the dashboard-functionalities. 
+      <td> <i> time of previous login (in session) --> to test the dashboard-functionalities. </i>
       </td>
     <% end %>
   </tr> 
 </table>
 
-<h1>Maintainers</h1>
-<%= link_to 'New presenter/Maintainer', new_presenter_path, :remote => true, :id => "new_presenter_link" %>   
-<table>
-<% @presenters.each_with_index do |presenter, i| %>
-  <% if presenter.account.maintainer? %>
-    <tr >
-      <td> <%= i+1 %> </td>
-      <td> <%= link_to presenter.name, presenter %></td>
-      <td><%= presenter.email%> </td>
-      <td class="nowrap" ><%= l presenter.created_at %> </td>
-      <td class="nowrap" ><%= l presenter.updated_at %> </td>
-      <td><%= guarded_link_to 'Edit', controller: 'presenters', action: 'edit', id: presenter.to_param %></td> 
-    </tr>
+<div id="account-creation">
+  <h1>Maintainers</h1>
+  <%= link_to 'New presenter/Maintainer', new_presenter_path, :remote => true, :id => "new_presenter_link" %>   
+  <p id="confirmation-sent">Confirmation email has been sent</p>
+  <table>
+  <% @presenters.each_with_index do |presenter, i| %>
+    <% if presenter.account.maintainer? %>
+      <tr >
+        <td> <%= i+1 %> </td>
+        <td> <%= link_to presenter.name, presenter %></td>
+        <td><%= presenter.email%> </td>
+        <td class="nowrap" ><%= l presenter.created_at %> </td>
+        <td class="nowrap" ><%= l presenter.updated_at %> </td>
+        <td><%= guarded_link_to 'Edit', controller: 'presenters', action: 'edit', id: presenter.to_param %></td> 
+      </tr>
+    <% end %>
   <% end %>
-<% end %>
-</table>
+  </table>
+</div>
 
 
 <br>

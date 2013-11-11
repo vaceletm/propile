@@ -103,6 +103,13 @@ describe PresentersController do
           assigns(:presenter).should be_persisted
         end
 
+        it 'sends confirmation email' do
+          request.env["HTTP_REFERER"] = 'dummy'
+          post :create, {:presenter => valid_attributes}
+
+          ActionMailer::Base.deliveries.should_not be_empty
+        end
+
         it "redirects to the created presenter" do
           request.env["HTTP_REFERER"] = 'dummy'
           post :create, {:presenter => valid_attributes}

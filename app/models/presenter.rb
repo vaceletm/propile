@@ -5,7 +5,7 @@ class Presenter < ActiveRecord::Base
   has_many :reviews
   has_many :comments
   has_many :votes
-  belongs_to :account
+  belongs_to :account, inverse_of: :presenter
 
   attr_accessible :bio, :email, :name, :role
   attr_accessible :twitter_id, :profile_image, :website
