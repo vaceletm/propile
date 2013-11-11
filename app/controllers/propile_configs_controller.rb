@@ -104,15 +104,6 @@ class PropileConfigsController < ApplicationController
     end
   end
 
-  def toggle_send_mails
-    PropileConfig.toggle_send_mails
-
-    respond_to do |format|
-      format.html { redirect_to propile_configs_url }
-      format.json { head :no_content }
-    end
-  end
-
   def start_conference
     Program.destroy_all
     ProgramEntry.destroy_all

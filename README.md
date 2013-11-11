@@ -70,6 +70,22 @@ a presenter profile should still be created as `me.presenter` to avoid app
 crashing when reaching dashboard.
 
 
+### Mails
+
+To be able to inspect mails on development env, please install `mailcatcher` :
+
+    gem install mailcatcher
+
+
+It will proxies all mails to a web interface that you can start using :
+
+    mailcatcher
+
+
+No mail will be sent out. You can run the application without installing or
+running mailcatcher, you just won't be able to inspect mails.
+
+
 ## Findings about design
 
 ### Sessions and sessions
