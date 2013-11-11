@@ -26,7 +26,6 @@ Propile::Application.routes.draw do
     get 'statistics', :on => :collection
     put 'toggle', :on => :collection
     put 'change_last_login', :on => :collection
-    put 'toggle_send_mails', :on => :collection
     get 'start_conference', :on => :collection
   end
 
