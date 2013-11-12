@@ -100,14 +100,7 @@ The `Session` model is related to former one.
 
 ### Creating accounts
 
-Even if there's an `AccountsController`, it seems it's expected to create
-accounts manually from rails console :
+To create account, go to the [configuration page](http://0.0.0.0:3000/profile_configs) and
+use the "New presenter/Maintainer" link in the "Maintainers" section.
 
-* `accounts/new` is accessible only for logged in users
-* this form displays no input anyway, except the submit one
-
-There's also an ajax form in configuration page, but I just could not getting
-it to work properly.
-
-So, as for now, let just create users the same way you did to create your own,
-just not setting them as maintainer.
+Upon completion, a confirmation email will be sent.

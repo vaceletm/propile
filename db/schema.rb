@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130909190234) do
+ActiveRecord::Schema.define(:version => 20131111152514) do
 
   create_table "accounts", :force => true do |t|
     t.string   "email",                :limit => 150,                          :null => false
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130909190234) do
     t.datetime "created_at",                                                   :null => false
     t.datetime "updated_at",                                                   :null => false
     t.datetime "last_login"
+    t.string   "confirmation_token"
   end
 
   add_index "accounts", ["authentication_token"], :name => "index_accounts_on_authentication_token"

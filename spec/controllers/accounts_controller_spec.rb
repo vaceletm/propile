@@ -30,12 +30,12 @@ describe AccountsController do
       end
     end
 
-  describe "GET new" do
-    it "assigns a new account as @account" do
-      get :new, {}
-      assigns(:account).should be_a_new(Account)
+    describe "GET new" do
+      it "assigns a new account as @account" do
+        get :new, {}
+        assigns(:account).should be_a_new(Account)
+      end
     end
-  end
 
     describe "GET edit" do
       it "assigns the requested account as @account" do
@@ -136,4 +136,52 @@ describe AccountsController do
     end
   end
 
+  describe 'confirm' do
+    describe 'for unconfirmed account' do
+      before :each do
+        @account = build_stubbed :account
+        @account.stub :update_attribute
+        @account.stub :save # called from #sign_in
+      end
+
+      describe 'providing correct confirmation token' do
+        before :each do
+          Account.stub( :where ).and_return( [ @account ] )
+        end
+
+        it 'confirms account' do
+          @account.should_receive( :update_attribute ).with( :confirmed_at, an_instance_of( Time ) )
+          get :confirm, id: 'token'
+        end
+
+        it 'redirects to password edition page' do
+          get :confirm, id: 'token'
+          response.should redirect_to edit_account_password_path
+        end
+      end
+
+      describe 'providing unknown confirmation token' do
+        before :each do
+          Account.stub( :where ).and_return( [] )
+          get :confirm, id: 'token'
+        end
+
+        it 'redirects to home page' do
+          response.should redirect_to root_path
+        end
+      end
+    end
+
+    describe 'for confirmed account' do
+      before :each do
+        @account = build_stubbed :confirmed_account
+        Account.stub( :where ).and_return( [ @account ] )
+        get :confirm, id: 'token'
+      end
+
+      it 'silently redirects to home page' do
+        response.should redirect_to root_path
+      end
+    end
+  end
 end

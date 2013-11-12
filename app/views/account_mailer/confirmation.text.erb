@@ -1,0 +1,6 @@
+Hello <%= @account.email %>,
+
+A <%= @account.role %> account has been created for you.
+
+You can confirm it using this link :
+<%= confirm_account_url( @account.confirmation_token ) %>

@@ -52,8 +52,8 @@ FactoryGirl.define do
     factory :confirmed_account do
       password 'secret'
       password_confirmation 'secret'
+      confirmed_at { Time.now }
       after( :create ) do |account|
-        account.confirm!
         account.create_presenter!
       end
     end
@@ -62,6 +62,10 @@ FactoryGirl.define do
   factory :presenter_account, :class => Account do
     sequence( :email ) { |n| "presenter_#{n}@example.com" }
     role Account::Presenter
+
+    after( :create ) do |account|
+      account.create_presenter! unless account.presenter
+    end
   end
 
   factory :vote do

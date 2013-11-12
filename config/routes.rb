@@ -35,7 +35,9 @@ Propile::Application.routes.draw do
 
   resources :pages, :only => :show
   
-  resources :accounts, except: [:destroy]
+  resources :accounts, except: [:destroy] do
+    get 'confirm', on: :member
+  end
 
   resources :comments, except: [:destroy] 
 

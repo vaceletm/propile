@@ -61,6 +61,8 @@ class PresentersController < ApplicationController
 
     respond_to do |format|
       if @presenter.save
+        AccountMailer.confirmation( @presenter.account ).deliver
+
         format.html {redirect_to :back, notice: 'Presenter was successfully created.'}
         format.json {render json: @product }
         format.js
