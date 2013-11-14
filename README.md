@@ -1,6 +1,8 @@
 # propile
 
-Community Conference Program Compiler
+Community Conference Program Compiler for Agile France.
+
+Continuous delivery is ensured by Travis: [![Build Status](https://travis-ci.org/agile-france/propile.png?branch=master)](https://travis-ci.org/agile-france/propile)
 
 
 ## Installation
