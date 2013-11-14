@@ -9,6 +9,8 @@ Community Conference Program Compiler
 
 Some environment variables are needed to set up the app :
 
+#### Database
+
 * `PROPILE_DEV_DB_NAME`
 * `PROPILE_DEV_DB_USER`
 * `PROPILE_DEV_DB_PASS`
@@ -18,6 +20,14 @@ Some environment variables are needed to set up the app :
 * `PROPILE_PROD_DB_NAME`
 * `PROPILE_PROD_DB_USER`
 * `PROPILE_PROD_DB_PASS`
+
+#### Mailer
+
+* `PROPILE_PROD_SMTP_HOST`
+* `PROPILE_PROD_SMTP_PORT`
+* `PROPILE_PROD_SMTP_HELO_DOMAIN`
+* `PROPILE_PROD_SMTP_USER`
+* `PROPILE_PROD_SMTP_PASS`
 
 You only need the first six for a development environment, set them in your
 .bashrc, .tmuxrc, or whatever you want than will set environment variables for
