@@ -51,7 +51,16 @@ Propile::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { :host => 'call4paper-agileconf.herokuapp.com' }
-  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address:               ENV[ 'PROPILE_PROD_SMTP_HOST' ] ,
+      port:                  ENV[ 'PROPILE_PROD_SMTP_PORT' ] ,
+      domain:                ENV[ 'PROPILE_PROD_SMTP_HELO_DOMAIN' ] ,
+      user_name:             ENV[ 'PROPILE_PROD_SMTP_USER' ] ,
+      password:              ENV[ 'PROPILE_PROD_SMTP_PASS' ] ,
+      authentication:        'plain',
+      enable_starttls_auto:  true
+  }
 
   # Enable threaded mode
   # config.threadsafe!
