@@ -8,7 +8,7 @@ script:
   - RAILS_ENV=test bundle exec rspec spec/
 before_script:
   - psql -c 'create database propile_test' -U postgres
-  - psql -c 'create user test with password test' -U postgres
+  - psql -c "create user test with password 'test'" -U postgres
   - psql -c 'grant all privileges on database propile_test to test' -U postgres
 notifications:
   disabled: true
