@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+  - 1.9.3
+env:
+  - DB=postgresql PROPILE_TEST_DB_NAME=propile_test PROPILE_TEST_DB_USER=test PROPILE_TEST_DB_PASS=test
+script:
+  - RAILS_ENV=test bundle exec rake --trace db:migrate
+  - RAILS_ENV=test bundle exec rspec spec/
+before_script:
+  - psql -c 'create database propile_test' -U postgres
+  - psql -c 'create user test with password test' -U postgres
+  - psql -c 'grant all privileges on database propile_test to test' -U postgres
+notifications:
+  disabled: true
