@@ -25,11 +25,6 @@ group :test do
   gem 'database_cleaner'
 end
 
-group :rake do
-  gem 'vlad'
-  gem 'vlad-git'
-end
-
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
