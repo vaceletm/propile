@@ -53,13 +53,12 @@ Propile::Application.configure do
   config.action_mailer.default_url_options = { :host => 'call4paper-agileconf.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      address:               ENV[ 'PROPILE_PROD_SMTP_HOST' ] ,
-      port:                  ENV[ 'PROPILE_PROD_SMTP_PORT' ] ,
-      domain:                ENV[ 'PROPILE_PROD_SMTP_HELO_DOMAIN' ] ,
-      user_name:             ENV[ 'PROPILE_PROD_SMTP_USER' ] ,
-      password:              ENV[ 'PROPILE_PROD_SMTP_PASS' ] ,
-      authentication:        'plain',
-      enable_starttls_auto:  true
+      port:                  '587',
+      address:               'smtp.mandrillapp.com',
+      user_name:             ENV[ 'MANDRILL_USERNAME' ],
+      password:              ENV[ 'MANDRILL_APIKEY' ],
+      domain:                'heroku.com',
+      authentication:        :plain
   }
 
   # Enable threaded mode
