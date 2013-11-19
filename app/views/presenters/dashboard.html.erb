@@ -11,28 +11,26 @@
   <% if @presenter.reviews.empty? %>
     <br/> <br/>
     <div class="outlined">
-      We expect presenters to help each other to develop their proposals, based on <b>peer to peer feedback</b>. <br/>
-      You can give feedback on other people's proposals and improve your proposal based on the feedback you receive. 
-      In this way, we will come to a set of quality session proposals in a transparent, community driven way.
+      Nous attendons des orateurs qu'ils s'aident les uns les autres à enrichir leurs propositions de sessions, en se <b>donnant du feedback</b>.<br/>
+      Si tout le monde joue le jeu, la qualité globale des sessions augmentera de manière transparente et collaborative, ce qui serait quand même vachement cool !
     </div>
     <div class="flashy">
-      Review your first session!!! 
+      Lancez-vous à l'eau, <a href='/sessions'>faites votre premier feedback</a> !!! 
     </div>
   <% end %>
 
   <% if !@presenter.name_filled_in? || @presenter.bio.blank? %>
     <br/> <br/>
     <div class="outlined">
-      <% if !@presenter.name_filled_in? %> Fill in your name! <% end %>
-      <% if @presenter.bio.blank? %> Fill in your bio! <% end %>
-      You can do that in <%= link_to "your own presenter page", current_account.presenter %>.
+      <% if !@presenter.name_filled_in? %> Renseigne ton nom ! <% end %>
+      <% if @presenter.bio.blank? %> Complète ta description ! <% end %>
+      Tu peux le faire sur <%= link_to "ta page de profil", current_account.presenter %>.
     </div>
   <% end %>
 
     <% if !@presenter.twitter_id.present? && !@presenter.profile_image.present? && !@presenter.website.present? %>
     <div class="outlined">
-      You can now add a profile image, website link or Twitter ID to your profile.
-      You can do that in <%= link_to "your own presenter page", current_account.presenter %>.
+      Tu peux ajouter une image, un lien vers ta page perso et ton profil twitter sur <%= link_to "ta page de profil", current_account.presenter %>.
     </div>
     <%  end %>
 
@@ -40,9 +38,8 @@
     <%  if session.has_new_review?  %>
       <br/> <br/>
       <div class="outlined">
-        Your session <%= link_to session.title, session%> has a <b>new review</b>. 
-        Have a look at the review and use it to improve your session. 
-        Leave a comment to explain to the reviewer what you modified and why. 
+        Tu as reçu un <b>nouveau feedback</b> sur ta session <%= link_to session.title, session%>. 
+        Jette un œil dessus et améliore ta session, et surtout pense à laisser un commentaire à ton relecteur pour lui expliquer ce que tu as modifié et pourquoi.
       </div>
     <% end %>
   <% end %>
@@ -51,14 +48,14 @@
     <%  if !session.complete?  %>
       <br/> <br/>
       <div class="outlined">
-        Several important fields are not filled in in your session <%= link_to session.title, session%>. 
-        Please <b>update your session</b>, so that reviewers and program committee have a better understanding of it 
+        Des champs importants ne sont pas renseignés dans ta session <%= link_to session.title, session%>. 
+        Peux-tu la <b>mettre à jour</b>, pour aider les relecteurs et le comité de sélection à y voir plus clair. 
       </div>
     <% end %>
   <% end %>
 
-  <h3>Sessions you are involved in: </h3>
-  <div><i> These are the sessions that you submitted, reviewed or commented.</i></div>
+  <h3>Sessions dans lesquelles tu t'es impliqué : </h3>
+  <div><i> Voici les sessions que tu as proposées, relues et enrichies ou commentées.</i></div>
   <%= render 'sessions/activity_index', :sessions => @sessions_you_are_involved_in, :sortable => false  %>
 
 </div>
@@ -68,13 +65,13 @@
   <% if PropileConfig.voting_active?  %> 
     <div ">
       <div class="flashy">
-        Voting is now activated!
+        Il est maintenant possible de voter !
       </div>
       <%= render :partial=>'votes/rules' %>
-      <h3>Your votes </h3>
-      <div><i>(only you can see this)</i></div>
+      <h3>Tes votes </h3>
+      <div><i>(ces informations ne sont pas publiques)</i></div>
       <% if @presenter.votes.empty? %> 
-        You have not yet voted.
+        Tu n'as pas encore voté.
       <% else %> 
         <%= render 'votes/index_for_one_voter', :votes => @presenter.votes  %>
       <%end%> 
@@ -83,8 +80,8 @@
   <%end%> 
 
   <% if !@sessions_that_need_a_review.empty? %>
-    <h3>These sessions are waiting for your review: </h3>
-    <div><i> These sessions don't have a review and/or are younger than 1 week.</i></div>
+    <h3>Ces sessions n'attendent que ton feedback !</h3>
+    <div><i> Ces sessions n'ont pas encore été relues ou ont été proposées il y a moins d'une semaine.</i></div>
     <%= render 'sessions/index_with_short_desc', :sessions => @sessions_that_need_a_review, :sortable => false  %>
   <% end %>
 </div>

@@ -10,7 +10,7 @@
   <tr>
     <td> <%= i+1 %> </td>
     <td class="<%= vote.session.topic %>"> <%= link_to w(vote.session.title) , vote.session %> 
-      <br/> <i> by <%= session_presenter_names(vote.session) %> </i>
+      <br/> <i> par <%= session_presenter_names(vote.session) %> </i>
     </td>
     <td> <%= link_to 'Destroy', vote, method: :delete %> </td>
   </tr>
