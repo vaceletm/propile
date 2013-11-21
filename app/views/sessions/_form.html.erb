@@ -3,10 +3,10 @@
 
   <% if !@session.complete? %>
     <div class="flashy">
-      Several important fields are not filled in in this session. <br/>
+      Plusieurs champs importants ne sont pas remplis dans cette session. <br/>
     </div>
     <div>
-      Check the following fields:
+      Vérifiez les champs suivants:
       <%= Session.fields_that_need_to_be_complete_printable %>
       <br/> <br/>
     </div>
@@ -17,7 +17,7 @@
     <div> <%= text_area :session, :title, :cols => "100", :rows => "1"  %> </div>
   </div>
   <div class="in_a_form">
-    <div> <%= f.label :sub_title %>: <i>sometimes your title is catchy but doesn't describe the content of your session. A subtitle can help. Keep short! </i> </div>
+    <div> <%= f.label :sub_title %>: <i>Parfois vous avez un titre accrocheur mais qui ne décrit pas le contenu de votre session. Un sous-titre peu aider. Faites court! </i> </div>
     <div> <%= text_area :session, :sub_title, :cols => "100", :rows => "1"  %> </div>
   </div>
 
@@ -26,10 +26,10 @@
     <table class="sessiontable">
       <tr>
         <td class="sessiontable_label" width="100px">
-          <div> <%= f.label :first_presenter_email %>*: <i><%= !current_account.maintainer? || "(editable for maintainers only)" %></i> </div>
+          <div> <%= f.label :first_presenter_email %>*: <i><%= !current_account.maintainer? || "(modifiable seulement par les mainteneurs)" %></i> </div>
         </td>
         <td class="sessiontable_label">
-          <div> <%= f.label :second_presenter_email %>: <i><%= !current_account.maintainer? || "(editable for maintainers only)" %></i> </div>
+          <div> <%= f.label :second_presenter_email %>: <i><%= !current_account.maintainer? || "(modifiable seulement par les mainteneurs)" %></i> </div>
         </td>
       </tr>
       <tr>
@@ -45,20 +45,20 @@
 
   <%if current_account.maintainer? %>
     <div >
-      <div> <%= f.label :state %>: <i><%= !current_account.maintainer? || "(visible and editable for maintainers only)" %></i> </div>
+      <div> <%= f.label :state %>: <i><%= !current_account.maintainer? || "(visible et modifiable seulement par les mainteneurs)" %></i> </div>
       <div>  <%= f.select :state, Session::AVAILABLE_STATES, :include_blank => false %> </div>
     </div>
   <%  end %>
 
   <p >
-  <div> <%= f.label :short_description %>: <i> will appear on the "Program Cards" on the "Program Board" at the conference. It should be a teaser. </i>
+  <div> <%= f.label :short_description %>: <i> apparaitra dans les "Cartes de Session" sur le "Tableau du Programme" à la conférence. &Ccedil;a devrait &ecirc;tre un teaser. </i>
     <%= link_to '(formatting)', "/pages/formatting", :target => '_blank', :class => 'smalllink' %>
   </div>
   <div> <%= text_area :session, :short_description, :cols => "100", :rows => "6"  %> </div>
   </p>
 
   <div >
-    <div> <%= f.label :session_goal %>: <i> what do you expect participants to get out of this session?</i> </div>
+    <div> <%= f.label :session_goal %>: <i> Que pensez-vous que les participants retireront de cette session?</i> </div>
     <div> <%= text_area :session, :session_goal, :cols => "100", :rows => "1"  %> </div>
   </div>
 
@@ -129,9 +129,9 @@
         </td>
         <td class="sessiontable_label">
           <%= f.label :intended_audience %>:
-          <i> who will benefit from this session?
-            Have a look at the <a href="/sessions/personas" target="_blank">Personas</a>
-            to get ideas about what participants want out of XP Days.</i>
+          <i> Qui profitera le plus de votre session ?
+            Jetez un oeil aux fiches de <a href="/sessions/personas" target="_blank">Personas</a>
+            pour avoir des idées de ce que les participants attendent d'Agile France.</i>
         </td>
       </tr>
       <tr>
