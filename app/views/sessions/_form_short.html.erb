@@ -3,21 +3,22 @@
 
 <% if !PropileConfig.submit_session_active? %> 
   <div>
-  <b>Session Submission is closed! Only maintainers can submit sessions. <br />
-  You can activate the session submission on the <%= link_to "Configuration", propile_configs_path %>.</b> <br />
+  <b>L'appel à orateurs est clôt ! Seuls les orga peuvent déposer des sujets. <br />
+  Vous pouvez activer le dépôt de sessions dans le <%= link_to "Configuration", propile_configs_path %>.</b> <br />
   </div>
 <% end %> 
 
 <div class="outlined">
-   Session submission is done in 2 steps. </br>
+   Le dépôt de sujets se passe en 2 &eacute;tapes. </br>
    <ul>
-     <li>Step 1: Submit a high level proposal </li>
-     <li>Step 2: Iteratively and incrementally add details to your proposal as you get questions and feedback </li>
+     <li>Etape 1: Déposez une proposition de haut niveau </li>
+     <li>Etape 2: Complétez votre proposition de manière itérative et incrémentale au fur et à mesure des questions ou du feedback que vous recevez </li>
    </ul>
-   After Step 1, you receive a login to the XPDays session proposal website.<br/>
-   Help other presenters develop their proposals, based on peer to peer feedback. 
-   You can give feedback on other people's proposals and improve your proposal based on the feedback you receive. 
-   In this way, we will come to a set of quality session proposals in a transparent, community driven way.
+   
+   Après l'étape 1, vous recevrez des identifiants de connexion au site de gestion des propositions de sessions.<br/>
+   Aidez les autres orateurs à améliorer leurs propositions, à partir du feedback par les pairs. 
+   Vous pouvez donner du feedback sur les propositions des autres et améliorer votre proposition à partir du feedback que vous recevez. 
+   De cette façon nous arriverons à un bel ensemble de sessions qualitatives par un processus ouvert, collaboratif et communautaire.
 </div>
 
 <div class="in_a_form"> 
@@ -25,7 +26,7 @@
   <div> <%= text_area :session, :title, :cols => "100", :rows => "1"  %> </div>
 </div>
 <div class="in_a_form"> 
-  <div> <%= f.label :sub_title %>: <i>sometimes your title is catchy but doesn't describe the content of your session. A subtitle can help. Keep short! </i> </div> 
+  <div> <%= f.label :sub_title %>: <i>parfois votre titre est accrocheur mais ne décrit pas bien le contenu de votre session. Un sous-titre peut aider, mais faites court !</i> </div> 
   <div> <%= text_area :session, :sub_title, :cols => "100", :rows => "1"  %> </div>
 </div>
 
@@ -55,7 +56,7 @@
 
 <div class="in_a_form"> 
   <div> 
-    <%= f.label :description %>*: <i> this will appear on the website, and they will also be displayed on the wall during the conference -> public description </i> 
+    <%= f.label :description %>*: <i> ceci va apparaitre sur le site, et sera affichée dans le programme durant la conférence -> description publique</i> 
     <%= link_to '(formatting)', "/pages/formatting", :target => '_blank', :class => 'smalllink' %> 
   </div>
   <div> <%= text_area :session, :description, :cols => "100"  , :rows => "20"%> </div>
