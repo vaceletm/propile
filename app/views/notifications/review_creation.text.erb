@@ -1,24 +1,24 @@
-A new review has been made for <%= @session.title %> by <%= @review.presenter.name %>:
+Une nouvelle revue a été déposée pour la session <%= @session.title %> de <%= @review.presenter.name %>:
 
-    We expect presenters to help each other to develop their proposals, based on peer to peer feedback. 
-    You can give feedback on other people's proposals and improve your proposal based on the feedback you receive. 
-    In this way, we will come to a set of quality session proposals in a transparent, community driven way.
+    Nous attendons descandidats orateurs qu'ils s'entraident à développer leurs propositions, en s'appuyant sur le feedback. 
+    Vous pouvez faire des retours sur les sujets proposés par les autres, puis améliorer vos propositions à partir des suggestions que vous font les autres. 
+    De cette manière, nous arriverons à un ensemble de propositions qualitatives par un process transparent, collaboratif et communautaire.
 
-You can find the review here: <%= review_url(@review) %>
+Vous pouvez trouver la revue ici: <%= review_url(@review) %>
 
-The XPDay Benelux Team.
+L'équipe d'orga Agile France 2014.
 
 ---------------------------------------------------
-Here's the review:
+Voici la revue:
 
-<%= @review.presenter.name  %> wrote:
+<%= @review.presenter.name  %> a écrit:
 
-What I like:
+Ce que j'aime:
 <%= @review.things_i_like %>
 
-Improvement opportunities:
+Opportunités d'amélioration:
 <%= @review.things_to_improve %>
 
-I give the session a '<%= @review.score %>' out of 10
-    This number indicates the ratio of "things you like" to "things to improve". 
-    If the session is almost perfect, this number will be close to 10, so this means that the things to improve are only minor improvements.
+Je donne à cette proposition une note de '<%= @review.score %>' sur 10
+    Ce chiffre indique le rapport entre les "choses que j'aime" et les "choses à améliorer". 
+    Si la proposition de session est presque parfaite, cette note sera proche de 10, ce qui signifie que les choses à améliorer sont mineures.
