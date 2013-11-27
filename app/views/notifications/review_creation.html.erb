@@ -1,29 +1,31 @@
-<p>A new review has been made for session <b><%= @session.title %></b> by <%= @review.presenter.name %>.</p>
+<p>Une nouvelle revue a été déposée pour la session <b><%= @session.title %></b> de <%= @review.presenter.name %>.</p>
 <div style="margin-left:10px;"><i>
- We expect presenters to help each other to develop their proposals, based on peer to peer feedback. 
- You can give feedback on other people's proposals and improve your proposal based on the feedback you receive. 
- In this way, we will come to a set of quality session proposals in a transparent, community driven way.
+    Nous attendons descandidats orateurs qu'ils s'entraident à développer leurs propositions, en s'appuyant sur le feedback. 
+    Vous pouvez faire des retours sur les sujets proposés par les autres, puis améliorer vos propositions à partir des suggestions que vous font les autres. 
+    De cette manière, nous arriverons à un ensemble de propositions qualitatives par un process transparent, collaboratif et communautaire.
 </i></div>
 
-<p>You can find the review <%= link_to 'here', review_url(@review) %></p>
+<p>Vous pouvez trouver la revue <%= link_to 'ici', review_url(@review) %></p>
 
-<p>The XPDay Benelux Team.</p>
+<p>L'équipe d'orga Agile France 2014.</p>
 <hr>
-<p>Here's the review:</p> 
-<p><i><%= @review.presenter.name  %> wrote:</i></p>
+
+<p>Voici la revue:</p> 
+<p><i><%= @review.presenter.name  %> a écrit:</i></p>
 
 
-<p><b>What I like:</b></p>
+<p><b>Ce que j'aime:</b></p>
 <%= wikinize @review.things_i_like %>
 
-<p><b>Improvement opportunities:</b></p>
+<p><b>Opportunités d'amélioration:</b></p>
 <%= wikinize @review.things_to_improve %>
 
-<p>I give the session a '<%= @review.score %>' out of 10 </br>
+<p>Je donne à cette proposition une note de '<%= @review.score %>' sur 10</br>
 <i>
-This number indicates the ratio of "things you like" to "things to improve". 
-If the session is almost perfect, this number will be close to 10, so this means that the things to improve are only minor improvements.
+    Ce chiffre indique le rapport entre les "choses que j'aime" et les "choses à améliorer". 
+    Si la proposition de session est presque parfaite, cette note sera proche de 10, ce qui signifie que les choses à améliorer sont mineures.
 </i></p>
 
 <hr>
 <div align="right" style="font-size:10px;"> (<%= Propile::Application.version %>) </div>
+
