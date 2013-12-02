@@ -1,4 +1,4 @@
-require 'csv'
+﻿require 'csv'
 
 class SessionsController < ApplicationController
   skip_before_filter :authorize_action, :only => [:create, :thanks, :csv,:rss,:activity_rss]
@@ -75,7 +75,7 @@ class SessionsController < ApplicationController
   end
 
   def new
-    #if !PropileConfig.submit_session_active? then raise "Session submission is closed" end
+    #if !PropileConfig.submit_session_active? then raise "Le dépôt de sujets est clôt." end
     @session = Session.new
   end
 
@@ -91,14 +91,14 @@ class SessionsController < ApplicationController
     @sessions = Session.all
     session_csv = CSV.generate(options = { :col_sep => ';' }) do |csv| 
       #header row
-      csv << [ "Title", "Subtitle",
-        "Presenters", "Created", "Modified",
-        "Type", "Topic", "Duration",
-        "Reviews",
-        "Goal",
-        "Intended Audience", "Experience Level",
-        "Max participants", "Laptops", "Other limitations", "Room setup", "Materials",
-        "Short" ]
+      csv << [ "Titre", "Soustitre",
+        "Orateurs", "Créée", "Modifiée",
+        "Langue", "Nature", "Durée",
+        "Revue",
+        "Objectif",
+        "Public visé", "Niveau d'expérience",
+        "Nb participants max", "Ordinateur", "Autres restrictions", "Disposition salle", "Matériel",
+        "Desc. Courte" ]
       #data row
       @sessions.each do |session| 
         csv << [ session.title, session.sub_title, 
@@ -123,7 +123,7 @@ class SessionsController < ApplicationController
       return
     end
     if @session.save
-      redirect_to thanks_session_path(@session), notice: 'Session was successfully created.' 
+      redirect_to thanks_session_path(@session), notice: 'La session a bien été créée.' 
       @session.presenters.each { |presenter| Postman.deliver(:session_submit, presenter, @session) }
     else
       render action: "new"
@@ -134,7 +134,7 @@ class SessionsController < ApplicationController
     @session = Session.find(params[:id])
 
     if @session.update_attributes(params[:session])
-      redirect_to @session, notice: 'Session was successfully updated.' 
+      redirect_to @session, notice: 'La session a bien été mise à jour.' 
     else
       render action: "edit" 
     end
