@@ -48,7 +48,7 @@ describe SessionsController do
       assigns(:sessions).should have(2).items
       assigns(:last_update).to_s.should == session2.updated_at.to_s
       doc = REXML::Document.new response.body
-      doc.elements['rss/channel/title'][0].should == "Propile: All updates"
+      doc.elements['rss/channel/title'][0].should == "Propile: Toutes les mises à jour"
       titles = []
       doc.elements.each("rss/channel/item") do |element|
         titles <<  element.elements["title"][0]
