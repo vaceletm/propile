@@ -1,4 +1,4 @@
-require 'spec_helper'
+﻿require 'spec_helper'
 require 'csv'
 require 'rexml/document'
 
@@ -132,7 +132,7 @@ describe SessionsController do
 
       assigns(:last_update).to_s.should == comment.updated_at.to_s
       doc = REXML::Document.new response.body
-      doc.elements['rss/channel/title'][0].should == "Propile: #{session.title} updates"
+      doc.elements['rss/channel/title'][0].should == "Propile: Mise à jour de #{session.title}"
       
       items = REXML::XPath.match(doc,"//item")
       
@@ -141,7 +141,7 @@ describe SessionsController do
       items[0].elements["title"][0].should == session.title
       items[0].elements["link"][0].should == ('http://test.host/sessions/' + session.id.to_s)
 
-      items[1].elements["title"][0].should == "#{session.title} - Review by #{reviewer.name}"
+      items[1].elements["title"][0].should == "#{session.title} - Revue par #{reviewer.name}"
       items[1].elements["link"][0].should == ('http://test.host/reviews/' + review1.id.to_s)
 
    
