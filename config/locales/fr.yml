@@ -1,0 +1,30 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  date: 
+    formats:
+      default: "%d/%m/%y"
+      short:   "%d/%m/%y"
+      long:    "%d/%m/%y"
+  time: 
+    formats:
+      default: "%d/%m/%y %H:%M"
+      short:   "%d/%m/%y %H:%M"
+      long:    "%d/%m/%y %H:%M"
+  hello: "Hello world"
+  notifications:
+    session_submit:
+      subject: "Merci d'avoir déposé le sujet"
+  account:
+    sessions:
+      new:
+        create_session: "Se connecter"
+    password_resets:
+      new:
+        send_password: "Réinitialiser le mot de passe"
+  sessions:
+    captcha_error: "Vous n'avez pas rempli correctement le catcha"
+  recaptcha-not-reachable: "Recaptcha was not reachable"
+  not_authorized: "Action non autorisée"
+
