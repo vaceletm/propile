@@ -1,4 +1,4 @@
-require 'prawn'
+ï»¿require 'prawn'
 require 'prawn/measurement_extensions'
 
 class Session < ActiveRecord::Base
@@ -9,13 +9,13 @@ class Session < ActiveRecord::Base
   CANCELED = 1
   CONFIRMED = 2
   AVAILABLE_TOPICS_AND_NAMES = { "talk" => "Conference (Talk)", "game" => "Jeu (Game)", "workshop" => "Atelier participatif (hands-on workshop)",
-	"demo" => "Présentation d'un outil (Tool demo)", "debate" => "Débat ouvert (Open debate)"}
+	"demo" => "PrÃ©sentation d'un outil (Tool demo)", "debate" => "DÃ©bat ouvert (Open debate)"}
   AVAILABLE_TOPICS_AND_NAMES_FOR_SELECT = AVAILABLE_TOPICS_AND_NAMES.invert
   AVAILABLE_TOPICS = AVAILABLE_TOPICS_AND_NAMES.keys
   AVAILABLE_TOPIC_NAMES = AVAILABLE_TOPICS_AND_NAMES.values
   AVAILABLE_LAPTOPS_REQUIRED = { "no" => "non", "yes" => "oui"}
   AVAILABLE_DURATION = [ "20 min", "50 min", "110 min", "150 min" ]
-  AVAILABLE_SESSION_TYPE = [ "Session en français", "Session in english" ]
+  AVAILABLE_SESSION_TYPE = [ "Session en franÃ§ais", "Session in english" ]
   AVAILABLE_STATES = {"Draft" => 0, "Canceled" => 1, "Confirmed" => 2 }
 
   FIELDS_THAT_NEED_TO_BE_COMPLETE=[:short_description, :session_type, :duration, :session_goal, :outline_or_timetable]
