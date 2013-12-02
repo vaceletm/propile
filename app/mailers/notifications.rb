@@ -1,4 +1,4 @@
-class Notifications < ActionMailer::Base
+Ôªøclass Notifications < ActionMailer::Base
  
   FromAddress = "contact@conference-agile.fr"
   default from: FromAddress
@@ -31,7 +31,7 @@ class Notifications < ActionMailer::Base
     @review = comment.review
     @comment = comment
     @session= @review.session
-    mail to: email, :subject => Propile::Application.mail_subject_prefix + "Un commentaire a ÈtÈ dÈposÈ pour la revue sur la session '#{@session.title}'"
+    mail to: email, :subject => Propile::Application.mail_subject_prefix + "Un commentaire a √©t√© d√©pos√© pour la revue sur la session '#{@session.title}'"
   end
 
   
