@@ -1,6 +1,6 @@
-Hello <%= @account.email %>,
+﻿Bonjour <%= @account.email %>,
 
-A <%= @account.role %> account has been created for you.
+Un compte <%= @account.role %> a été créé pour vous.
 
-You can confirm it using this link :
+Vous pouvez le confirmer en cliquant sur ce lien :
 <%= confirm_account_url( @account.confirmation_token ) %>

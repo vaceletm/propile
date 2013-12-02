@@ -8,8 +8,13 @@ class Session < ActiveRecord::Base
   DRAFT = 0
   CANCELED = 1
   CONFIRMED = 2
-  AVAILABLE_TOPICS_AND_NAMES = { "talk" => "Conference (Talk)", "game" => "Jeu (Game)", "workshop" => "Atelier participatif (hands-on workshop)",
-	"demo" => "Présentation d'un outil (Tool demo)", "debate" => "Débat ouvert (Open debate)"}
+  AVAILABLE_TOPICS_AND_NAMES = { 
+    "talk" => "Conference (Talk)", 
+    "game" => "Jeu (Game)", 
+	"workshop" => "Atelier participatif (hands-on workshop)",
+	"demo" => "Présentation d'un outil (Tool demo)", 
+	"debate" => "Débat ouvert (Open debate)"
+  }
   AVAILABLE_TOPICS_AND_NAMES_FOR_SELECT = AVAILABLE_TOPICS_AND_NAMES.invert
   AVAILABLE_TOPICS = AVAILABLE_TOPICS_AND_NAMES.keys
   AVAILABLE_TOPIC_NAMES = AVAILABLE_TOPICS_AND_NAMES.values
@@ -109,9 +114,9 @@ class Session < ActiveRecord::Base
 
   def update_status (since)
     if created_at > since
-      "NEW" 
+      "NOUVEAU" 
     elsif !updated_at.nil? && updated_at >  since
-      "UPDATED"
+      "MIS A JOUR"
     else
       ""
     end
@@ -119,7 +124,7 @@ class Session < ActiveRecord::Base
 
   def review_status (since)
     if reviews.any?{|r| r.created_at > since}
-      "REVIEWED"
+      "REVU"
     else
       ""
     end
@@ -127,7 +132,7 @@ class Session < ActiveRecord::Base
 
   def comment_status (since)
     if reviews.any?{|r| r.comments.any? {|c| c.created_at > since.to_date } }
-      "COMMENTED"
+      "COMMENTÉ"
     else
       ""
     end

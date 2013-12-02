@@ -1,4 +1,4 @@
-require 'spec_helper'
+﻿require 'spec_helper'
 require 'fileutils'
 
 describe Session do
@@ -220,7 +220,7 @@ describe Session do
     end
     context "existent topic" do 
       it "returns name from hash" do 
-        Session.topic_name("technology").should == "Technology and Technique" 
+        Session.topic_name("workshop").should == "Atelier participatif (hands-on workshop)" 
       end 
     end
   end
@@ -360,12 +360,12 @@ describe Session do
       session.should_not be_laptops_required
     end
     it "no means no laptop" do
-      session.laptops_required = "no"
+      session.laptops_required = "non"
       session.should be_valid
       session.should_not be_laptops_required
     end
     it "yes means laptio_required" do
-      session.laptops_required = "yes"
+      session.laptops_required = "oui"
       session.should be_valid
       session.should be_laptops_required
     end
@@ -387,7 +387,7 @@ describe Session do
       session.should be_valid
     end
     it "if correct session_type is valid" do 
-      session.session_type = "discovery session"
+      session.session_type = "Session en français"
       session.should be_valid
     end
     it "if incorrect session_type is invalid" do 

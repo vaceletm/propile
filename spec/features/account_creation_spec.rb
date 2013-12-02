@@ -1,4 +1,4 @@
-require 'spec_helper'
+﻿require 'spec_helper'
 
 describe 'Account creation' do
   describe 'visiting config page as a maintainer' do
@@ -98,7 +98,7 @@ describe 'Account creation' do
 
       it 'shows logged in user home' do
         within '#main-navigation' do
-          page.should have_content 'Dashboard'
+          page.should have_content 'Tableau de bord'
         end
       end
     end

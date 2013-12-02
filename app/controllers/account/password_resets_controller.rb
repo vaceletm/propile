@@ -1,4 +1,4 @@
-class Account::PasswordResetsController < PublicController
+﻿class Account::PasswordResetsController < PublicController
   layout 'account'
   def new
     @account = Account.new
@@ -9,7 +9,7 @@ class Account::PasswordResetsController < PublicController
       @account.reset!
       redirect_to success_account_password_reset_path
     else
-      flash.alert = 'This e-mail address is not known to us' 
+      flash.alert = 'Nous ne connaissons pas cette adresse e-mail' 
       @account = Account.new
       render :action => :new
     end

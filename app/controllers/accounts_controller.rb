@@ -1,4 +1,4 @@
-class AccountsController < ApplicationController
+﻿class AccountsController < ApplicationController
   skip_before_filter :authorize_action, only: :confirm
   def index
     @accounts = Account.all
@@ -20,7 +20,7 @@ class AccountsController < ApplicationController
     @account = Account.new(params[:account])
 
     if @account.save
-      redirect_to @account, notice: 'Account was successfully created.' 
+      redirect_to @account, notice: 'Le compte a bien été créé.' 
     else
       render action: "new"
     end
@@ -30,7 +30,7 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
 
     if @account.update_attributes(params[:account])
-      redirect_to @account, notice: 'Account was successfully updated.'
+      redirect_to @account, notice: 'Le compte a bien été mis à jour.'
     else
       render action: "edit"
     end
@@ -48,7 +48,7 @@ class AccountsController < ApplicationController
         redirect_to edit_account_password_path
       end
     else
-      redirect_to root_path, alert: "We could not find your account. Please contact administrators."
+      redirect_to root_path, alert: "Nous n'avons pas trouvé votre compte. Merci de contacter les administrateurs."
     end
   end
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <rss version="2.0">
    <channel>
-      <title>Propile: Mise à jour de <%= w @this_session.title%></title>
+      <title>Propile: Toutes les mises à jour de <%= w @this_session.title%></title>
       <link><%= url_for :action => 'show' , :controller => 'sessions' , :id => @this_session , :only_path => false %></link>
       <description><%= w @this_session.sub_title %></description>
       <language>fr-fr</language>
