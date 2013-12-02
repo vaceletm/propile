@@ -1,4 +1,4 @@
-<%= title "#{@session.title}" %>
+﻿<%= title "#{@session.title}" %>
 <%= errors_for @new_review %>
 
 <% if @anchor %>
@@ -9,33 +9,33 @@
 
 
 <%= content_for :sub_menu do %> 
-  <%= guarded_link_to 'Edit this session', controller: 'sessions', action: 'edit', id: @session.to_param %>
-  <%= link_to 'Printable card (PDF)', controller: 'sessions', action: 'program_board_card', id: @session.to_param, format: "pdf" %>
-  <%= link_to 'Printable description (PDF)', controller: 'sessions', action: 'show', id: @session.to_param, format: "pdf" %>
-  <%= link_to 'RSS feed', controller: 'sessions', action: 'rss', format: :xml, id: @session.to_param %>
-  <%= link_to 'Back to list of sessions', sessions_path %>
+  <%= guarded_link_to 'Modifier cette session', controller: 'sessions', action: 'edit', id: @session.to_param %>
+  <%= link_to 'Carte imprimable (PDF)', controller: 'sessions', action: 'program_board_card', id: @session.to_param, format: "pdf" %>
+  <%= link_to 'Description imprimable (PDF)', controller: 'sessions', action: 'show', id: @session.to_param, format: "pdf" %>
+  <%= link_to 'Fil RSS', controller: 'sessions', action: 'rss', format: :xml, id: @session.to_param %>
+  <%= link_to 'retour à la liste des sessions', sessions_path %>
 <% end %>
 
 <%= content_for :extra_info do %> 
   <% if PropileConfig.voting_active?  %>
     <div class="flashy">
       <% if @current_presenter_has_voted_for_this_session  %>
-        You have voted for this session
-        --> <%= link_to 'Destroy this vote', @my_vote, method: :delete %>
+        Vous avez voté pour cette session
+        --> <%= link_to 'Supprimer mon vote', @my_vote, method: :delete %>
       <% else %>
-        <%= link_to 'Vote for this session', session_votes_path(@session), method: :post %>
+        <%= link_to 'Voter pour cette session', session_votes_path(@session), method: :post %>
       <% end %>
     </div>
   <% end %>
 <% end %>
 
 <%= content_for :created_and_modified do %> 
-  Session Created: <%= l @session.created_at %> --
-  Modified: <%= l @session.updated_at %>
+  Session créée: <%= l @session.created_at %> --
+  Modifiée: <%= l @session.updated_at %>
 <% end %>
 
 <% if @session.canceled? %>
-  <div class="flashy">THIS SESSION HAS BEEN CANCELED</div>
+  <div class="flashy">CETTE SESSION A ETE ANNULEE</div>
 <%else%>
   <div>
     by <%= session_presenter_names(@session) %>
@@ -53,10 +53,10 @@
 <% end %>
 
 
-<h2> Reviews for this session: </h2>
+<h2> Revues pour cette session: </h2>
 <div>
-  <i>Reviews are done in <%= link_to 'Perfection Game Format', "/pages/index#PerfectionGame", :target => '_blank' %>.
-    Read more about what we expect of a  <%= link_to 'good session', "/pages/index#ReviewCriteria", :target => '_blank' %>
+  <i>Les revues sont faites au format <%= link_to 'Perfection Game', "/pages/index#PerfectionGame", :target => '_blank' %>.
+    Voir ici ce que nous attendons d'une <%= link_to 'bonne session', "/pages/index#ReviewCriteria", :target => '_blank' %>
   </i>
 </div>
 
@@ -70,11 +70,11 @@
         <%= render 'reviews/show', :review => review  %>
       <% end %>
       <div class="alignright">
-        <%= guarded_link_to 'Edit this review', controller: 'reviews', action: 'edit', id: review  %> &nbsp;
+        <%= guarded_link_to 'Modifier la revue', controller: 'reviews', action: 'edit', id: review  %> &nbsp;
       </div>
 
       <% if review.comments.size!=0 %>
-        <h3> Comments on this review: </h3>
+        <h3> Commentaires sur cette revue: </h3>
         <div>
           <% review.comments.each_with_index do |comment, j| %>
             <%= collapse_button_initially_open ("session_review_#{review.id}_comment_#{comment.id}") %>
@@ -85,7 +85,7 @@
                 <%= render 'comments/show', :comment => comment  %>
               <% end %>
               <div class="alignright">
-                <%= guarded_link_to 'Edit this comment', controller: 'comments', action: 'edit', id: comment %>
+                <%= guarded_link_to 'Modifier ce commentaire', controller: 'comments', action: 'edit', id: comment %>
               </div>
             </div>
           <% end %>
@@ -93,7 +93,7 @@
       <% end %>
       <%= collapse_button_initially_open ("session_review_#{review.id}_comment_new") %>
       <div id="session_review_<%=review.id%>_comment_new" style="display:block;" class="comment">
-        <h4>Make a new comment on this review: </h4>
+        <h4>Faire un nouveau commentaire sur cette revue: </h4>
         <% if defined?(@new_comment) && !@new_comment.nil? && @new_comment.review.id==review.id
           new_comment = @new_comment
         else
@@ -108,7 +108,7 @@
 
   <%= collapse_button_initially_open ("session_review_new") %>
   <div id="session_review_new" style="display:block;" class="review">
-    <h3>Make a new review: </h3>
+    <h3>Faire une nouvelle revue: </h3>
     <% if !defined?(@new_review) || @new_review.nil?
       @new_review = @session.reviews.build
       @new_review.presenter = @current_presenter

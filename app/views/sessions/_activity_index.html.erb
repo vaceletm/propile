@@ -1,8 +1,8 @@
-<table class="tablelist">
+﻿<table class="tablelist">
 <% sessions.each_with_index do |session, i| %>
   <tr>
 <% if @voting_active  %>
-    <td> <% if session.presenter_has_voted_for?(@current_account.presenter.id) %> YES  <% end %> </td>
+    <td> <% if session.presenter_has_voted_for?(@current_account.presenter.id) %> OUI  <% end %> </td>
 <% end %>
     <td class="<%= session.topic %>"> <%= link_to w(session.title) , session %>
     <br/> <i> by <%= session_presenter_names(session) %> </i>

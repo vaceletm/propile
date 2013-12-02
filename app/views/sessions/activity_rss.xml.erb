@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
   <channel>
-    <title>Propile: All updates</title>
+    <title>Propile: Toutes les mises à jour</title>
     <link><%= url_for :action => 'index' , :controller => 'sessions' , :only_path => false %></link>
-    <description>All updates in Propile</description>
-    <language>en-us</language>
+    <description>Toutes les mises à jour dans la préparation du programme Agile France</description>
+    <language>fr-fr</language>
     <pubDate><%= @last_update.strftime("%a, %-d %b %Y %H:%I:%M GMT") %></pubDate>
     <lastBuildDate><%= @last_update.strftime("%a, %-d %b %Y %H:%I:%M GMT") %></lastBuildDate>
     <docs>http://blogs.law.harvard.edu/tech/rss</docs>

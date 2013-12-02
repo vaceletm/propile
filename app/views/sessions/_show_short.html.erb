@@ -1,22 +1,22 @@
-<h2>Additional Information</h2>
+﻿<h2>Informations supplémentaires</h2>
 
-<h3>Session Properties </h3>
+<h3>Propriétés de la session</h3>
 <div id="session_properties" style="display:block;">
 <table class="propertytable" >
 <tr>
-  <td> Room setup:</td><td> <%= @session.room_setup %>  </td>
+  <td> Disposition de la salle:</td><td> <%= @session.room_setup %>  </td>
 </tr>
 <tr>
-  <td> Other limitations:</td><td> <%= @session.other_limitations %>  </td>
+  <td> Autres restrictions:</td><td> <%= @session.other_limitations %>  </td>
 </tr>
 <tr>
-  <td> Materials needed: </td><td><%= @session.materials_needed %> </td>
+  <td> Matériel requis: </td><td><%= @session.materials_needed %> </td>
 </tr>
 </table>
 </div>
 
 
-<h3><%= collapse_button_initially_open ("session_outline") %> Outline or Timetable </h3>
+<h3><%= collapse_button_initially_open ("session_outline") %> Plan ou agenda </h3>
 <div id="session_outline" style="display:block;">
   <div class="lessoutlined"> 
     <%= wikinize( @session.outline_or_timetable) %> 
