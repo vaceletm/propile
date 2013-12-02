@@ -1,13 +1,13 @@
-<%= title "Editing #{@session.title}" %>
+﻿<%= title "Modification de la session #{@session.title}" %>
 
 <%= content_for :sub_menu do %> 
-  <%= link_to 'Show', @session %> 
-  <%= link_to 'Back', sessions_path %>
+  <%= link_to 'Afficher', @session %> 
+  <%= link_to 'Retour', sessions_path %>
 <% end %>
 
 <%= content_for :created_and_modified do %> 
-  Created: <%= l @session.created_at %> -- 
-  Modified: <%= l @session.updated_at %> 
+  Crée: <%= l @session.created_at %> -- 
+  Modifiée: <%= l @session.updated_at %> 
 <% end %>
 
 <%= render :partial => 'form', :locals => { :session => "@session"  }  %>
