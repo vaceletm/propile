@@ -8,19 +8,14 @@ class Session < ActiveRecord::Base
   DRAFT = 0
   CANCELED = 1
   CONFIRMED = 2
-  
-  AVAILABLE_TOPICS_AND_NAMES = { "technology"=>"Technology and Technique", 
-    "customer"=>"Customer and Planning",
-    "cases"=>"Intro's and Cases",
-    "team"=>"Team and Individual",
-    "process"=>"Process and Improvement",
-    "other"=>"Other"}
+  AVAILABLE_TOPICS_AND_NAMES = { "talk" => "Conference (Talk)", "game" => "Jeu (Game)", "workshop" => "Atelier participatif (hands-on workshop)",
+	"demo" => "Présentation d'un outil (Tool demo)", "debate" => "Débat ouvert (Open debate)"}
   AVAILABLE_TOPICS_AND_NAMES_FOR_SELECT = AVAILABLE_TOPICS_AND_NAMES.invert
   AVAILABLE_TOPICS = AVAILABLE_TOPICS_AND_NAMES.keys
   AVAILABLE_TOPIC_NAMES = AVAILABLE_TOPICS_AND_NAMES.values
-  AVAILABLE_LAPTOPS_REQUIRED = { "no" => "no", "yes" => "yes"}
-  AVAILABLE_DURATION = [ "30 min", "75 min", "150 min" ]
-  AVAILABLE_SESSION_TYPE = [ "hands on coding/design/architecture session", "discovery session", "experiential learning session", "short experience report (30 min)"]
+  AVAILABLE_LAPTOPS_REQUIRED = { "no" => "non", "yes" => "oui"}
+  AVAILABLE_DURATION = [ "20 min", "50 min", "110 min", "150 min" ]
+  AVAILABLE_SESSION_TYPE = [ "Session en français", "Session in english" ]
   AVAILABLE_STATES = {"Draft" => 0, "Canceled" => 1, "Confirmed" => 2 }
 
   FIELDS_THAT_NEED_TO_BE_COMPLETE=[:short_description, :session_type, :duration, :session_goal, :outline_or_timetable]
@@ -105,7 +100,7 @@ class Session < ActiveRecord::Base
   end
 
   def printable_laptops_required
-    (laptops_required and laptops_required == "yes") ?  "bring laptop" : ""
+    (laptops_required and laptops_required == "yes") ?  "Apporter ordi" : ""
   end
 
   def status (since)
@@ -182,7 +177,7 @@ class Session < ActiveRecord::Base
     pdf.text id.to_s, :align => :right, :size => 6
     pdf.move_up 4.mm
     pdf.text "#{votes.size} votes"
-    pdf.text "#{reviews.size} reviews"
+    pdf.text "#{reviews.size} revues"
     pdf.bounding_box([0, 85.mm], :width => 135.mm) do 
       pdf.text title, :align => :center, :size => 18
       pdf.text sub_title, :align => :center, :style => :italic, :size => 8 if !sub_title.nil? 
