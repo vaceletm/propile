@@ -111,7 +111,7 @@ describe SessionsController do
       review2.presenter = reviewer
       session.reviews << review2
 
-      comment = review1.comments.create :body => "Thank you for the review"
+      comment = review1.comments.create :body => "Merci pour la revue"
       comment.presenter = session.first_presenter
       comment.save
 
