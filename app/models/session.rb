@@ -14,7 +14,7 @@ class Session < ActiveRecord::Base
   AVAILABLE_TOPICS = AVAILABLE_TOPICS_AND_NAMES.keys
   AVAILABLE_TOPIC_NAMES = AVAILABLE_TOPICS_AND_NAMES.values
   AVAILABLE_LAPTOPS_REQUIRED = { "no" => "non", "yes" => "oui"}
-  AVAILABLE_DURATION = [ "20 min", "50 min", "110 min", "150 min" ]
+  AVAILABLE_DURATION = [ "25 min", "50 min", "110 min", "140 min" ]
   AVAILABLE_SESSION_TYPE = [ "Session en français", "Session in english" ]
   AVAILABLE_STATES = {"Draft" => 0, "Canceled" => 1, "Confirmed" => 2 }
 
