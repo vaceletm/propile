@@ -1,17 +1,17 @@
-<table class="tablelist">
+﻿<table class="tablelist">
   <tr>
     <th></th>
     <th></th>
 <% if @voting_active  %>
-    <th> <%= sortable ? sortable("voted") : "Voted"  %> </th>
+    <th> <%= sortable ? sortable("voted") : "Votée"  %> </th>
 <% end %>
     <!--th> <% if sortable %> <%= sortable "title" %> <% else %> Title <% end %> </th-->
-    <th> <%= sortable ? sortable("title") : "Title"  %> </th>
-    <th> <%= sortable ? sortable("presenters", "Presenter(s)") : "Presenter(s)" %> </th>
-    <th> <%= sortable ? sortable("reviewcount", "Reviews" ) : "Reviews" %> </th>
+    <th> <%= sortable ? sortable("title") : "Titre"  %> </th>
+    <th> <%= sortable ? sortable("presenters", "Orateur(s)") : "Orateur(s)" %> </th>
+    <th> <%= sortable ? sortable("reviewcount", "Reviews" ) : "Revues" %> </th>
     <th> <%= sortable ? sortable("topic") : "Topic" %> </th>
-    <th> <%= sortable ? sortable("created_at", "Created" ) : "Created" %> </th>
-    <th> <%= sortable ? sortable("updated_at", "Modified" ) : "Modified" %> </th>
+    <th> <%= sortable ? sortable("created_at", "Created" ) : "Crée" %> </th>
+    <th> <%= sortable ? sortable("updated_at", "Modified" ) : "Modifiée" %> </th>
     <th></th>
     <th></th>
   </tr>
@@ -25,7 +25,7 @@
       </div>
     </td>
 <% if @voting_active  %>
-    <td> <% if session.presenter_has_voted_for?(@current_account.presenter.id) %> YES  <% end %> </td>
+    <td> <% if session.presenter_has_voted_for?(@current_account.presenter.id) %> OUI  <% end %> </td>
 <% end %>
     <td> <%= link_to w(session.title) , session %></td>
     <td> <%= session_presenter_names(session) %> </td>
@@ -33,7 +33,7 @@
     <td class="<%= session.topic %>"> <%= session.topic_name %> </td>
     <td class="nowrap" ><%= l session.created_at %> </td>
     <td class="nowrap" ><%= l session.updated_at %> </td>
-    <td><%= guarded_link_to 'Edit', controller: 'sessions', action: 'edit', id: session.to_param %></td>
+    <td><%= guarded_link_to 'Modifier', controller: 'sessions', action: 'edit', id: session.to_param %></td>
     <td><a href="<%= url_for controller: 'sessions', action: 'rss', format: :xml, id: session.to_param %>"><%= image_tag('rss.png')%></a></td>
 
   </tr>
