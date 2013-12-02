@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
-    <title>Propile</title>
+    <title>Appel à Orateurs Agile France (Propile)</title>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <% if signed_in? %>
@@ -15,28 +15,28 @@
       <div class="menu">
       <nav id="header-navigation">
         <% if signed_in? %>
-          <%= "Signed in as" %>&nbsp;<%= link_to current_account.email , current_account.presenter %>
+          <%= "Connecté en tant que" %>&nbsp;<%= link_to current_account.email , current_account.presenter %>
           <%= current_account.maintainer? ? "(maintainer)" : "" %>
           &nbsp;|&nbsp;
-          <%= link_to 'Change password', edit_account_password_path %>&nbsp;|&nbsp;
-          <%= link_to 'Sign out', account_session_path, :method => :delete %>
+          <%= link_to 'Changer de Mot de Passe', edit_account_password_path %>&nbsp;|&nbsp;
+          <%= link_to 'Déconnexion', account_session_path, :method => :delete %>
         <% else %>
-          <%= link_to 'Sign in', new_account_session_path %>
+          <%= link_to 'Connexion', new_account_session_path %>
         <% end %>
       </nav>
 
       <nav id="main-navigation">
         <ul>
           <%= menu(request) do |m| %>
-            <% m.tab("Home", 'pages') %>
-            <% m.tab("Dashboard", "presenters#dashboard") %>
+            <% m.tab("Accueil", 'pages') %>
+            <% m.tab("Tableau de bord", "presenters#dashboard") %>
             <% m.tab("Sessions", "sessions") %>
-            <% m.tab("Presenters", "presenters") %>
-            <% m.tab("Create Session Proposal", "sessions#new") %>
+            <% m.tab("Orateurs", "presenters") %>
+            <% m.tab("Proposer une session", "sessions#new") %>
             <% m.tab("Votes", "votes") %>
-            <% m.tab("Programs", "programs") %>
+            <% m.tab("Programmes", "programs") %>
             <% m.tab("Configuration", "propile_configs") %>
-            <% m.tab("Statistics", "propile_configs#statistics") %>
+            <% m.tab("Statistiques", "propile_configs#statistics") %>
           <% end %>
         </ul>
       </nav>
@@ -57,7 +57,7 @@
     <hr/>
     <div class="submenu"> <%= yield :sub_menu %> </div>
     <div class="alignright"> 
-      <a href="mailto:contact@conference-agile.fr">problems or questions
+      <a href="mailto:contact@conference-agile.fr">Problèmes ou questions
       (<%= Propile::Application.version %>)
       </a> 
     </div> 

@@ -3,14 +3,14 @@ module RequestUserHelpers
     visit root_path
 
     within '#header-navigation' do
-      click_link 'Sign in'
+      click_link 'Connexion'
     end
 
     within '#new_account' do
       fill_in 'account_email', with: user.email
       fill_in 'account_password', with: password
 
-      click_button 'Sign in'
+      click_button 'Connexion'
     end
   end
 end
