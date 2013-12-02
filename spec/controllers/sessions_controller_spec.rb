@@ -93,7 +93,7 @@ describe SessionsController do
       assigns(:this_session).should == session
       assigns(:last_update).to_s.should == session.updated_at.to_s
       doc = REXML::Document.new response.body
-      doc.elements['rss/channel/title'][0].should == "Propile: #{session.title} updates"
+      doc.elements['rss/channel/title'][0].should == "Propile: Toutes les mises à jour de #{session.title}"
       doc.elements.each("rss/channel/item") do |element|
         element.elements["title"][0].should == session.title
         element.elements["link"][0].should == ('http://test.host/sessions/' + session.id.to_s)
