@@ -57,7 +57,7 @@ describe ProgramsController do
       @session.title = "Session expérimentale"
       @session.description = "We're going to do things nobody's ever done before. At least Irène hasn't done them."
       @session.topic = "demo"
-      @session.laptops_required = 'no'
+      @session.laptops_required = 'non'
       @session.duration = "50 min"
       @session.first_presenter = @me
       @session.second_presenter = @friend

@@ -13,7 +13,7 @@ class Session < ActiveRecord::Base
   AVAILABLE_TOPICS_AND_NAMES_FOR_SELECT = AVAILABLE_TOPICS_AND_NAMES.invert
   AVAILABLE_TOPICS = AVAILABLE_TOPICS_AND_NAMES.keys
   AVAILABLE_TOPIC_NAMES = AVAILABLE_TOPICS_AND_NAMES.values
-  AVAILABLE_LAPTOPS_REQUIRED = { "no" => "non", "yes" => "oui"}
+  AVAILABLE_LAPTOPS_REQUIRED = { "non" => "non", "oui" => "oui"}
   AVAILABLE_DURATION = [ "25 min", "50 min", "110 min", "140 min" ]
   AVAILABLE_SESSION_TYPE = [ "Session en français", "Session in english" ]
   AVAILABLE_STATES = {"Draft" => 0, "Canceled" => 1, "Confirmed" => 2 }
@@ -186,9 +186,9 @@ class Session < ActiveRecord::Base
       wikinize_for_pdf(short_description, pdf) if !short_description.nil? 
     end
     pdf.bounding_box([0, 10.mm], :width => 135.mm, :height => 12.mm ) do 
-      pdf.text "Presenters:"
+      pdf.text "Orateurs:"
       pdf.text "Format: "
-      pdf.text "Topic: "
+      pdf.text "Nature: "
     end
     pdf.bounding_box([20.mm, 10.mm], :width => 113.mm, :height => 12.mm ) do 
       pdf.text presenter_names
