@@ -15,7 +15,7 @@ describe Notifications do
     end
 
     it "renders the body" do
-      mail.body.encoded.should match("Hi")
+      mail.body.encoded.should match("Merci d'avoir déposé le sujet")
       mail.body.encoded.should match session.title
       mail.body.encoded.should match(account_response_session_url(presenter_login_guid))
     end
@@ -26,7 +26,7 @@ describe Notifications do
     let(:mail) { Notifications.account_reset account }
 
     it "renders the headers" do
-      mail.subject.should eq("Account reset")
+      mail.subject.should eq("Votre compte a été réinitialisé")
       mail.to.should eq([account.email])
       mail.from.should eq([Notifications::FromAddress])
     end
@@ -41,7 +41,7 @@ describe Notifications do
     let(:session) { review.session }
     let(:mail) { Notifications.review_creation "to@mail.com", review }
     it "renders the headers" do
-      mail.subject.should  == Propile::Application.mail_subject_prefix + "Review on session '#{session.title}'"
+      mail.subject.should  == Propile::Application.mail_subject_prefix + "Nouvelle revue pour la session '#{session.title}'"
       mail.to.should  == ['to@mail.com']
       mail.from.should == [ Notifications::FromAddress ]
     end
@@ -62,7 +62,7 @@ describe Notifications do
     let(:session) { review.session }
     let(:mail) { Notifications.comment_creation "to@mail.com", comment }
     it "renders the headers" do
-      mail.subject.should  == Propile::Application.mail_subject_prefix + "Comment for review on session '#{session.title}'"
+      mail.subject.should  == Propile::Application.mail_subject_prefix + "Un commentaire a été déposé pour la revue sur la session '#{session.title}'"
       mail.to.should  == ['to@mail.com']
       mail.from.should == [ Notifications::FromAddress ]
     end
