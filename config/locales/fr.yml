@@ -12,7 +12,7 @@ en:
       default: "%d/%m/%y %H:%M"
       short:   "%d/%m/%y %H:%M"
       long:    "%d/%m/%y %H:%M"
-  hello: "Hello world"
+  hello: "Bonjour"
   notifications:
     session_submit:
       subject: "Merci d'avoir déposé le sujet"

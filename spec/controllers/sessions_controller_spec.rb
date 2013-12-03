@@ -132,7 +132,7 @@ describe SessionsController do
 
       assigns(:last_update).to_s.should == comment.updated_at.to_s
       doc = REXML::Document.new response.body
-      doc.elements['rss/channel/title'][0].should == "Propile: Mise à jour de #{session.title}"
+      doc.elements['rss/channel/title'][0].should == "Propile: Toutes les mises à jour de #{session.title}"
       
       items = REXML::XPath.match(doc,"//item")
       
