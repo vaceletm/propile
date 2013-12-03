@@ -298,7 +298,7 @@ describe Session do
       session.printable_laptops_required.should == ""
     end
     it "if laptops_required is yes returns non-empty string" do 
-      session.laptops_required = "yes"
+      session.laptops_required = "oui"
       session.printable_laptops_required.should == "Apporter ordi"
     end
   end
@@ -315,7 +315,7 @@ describe Session do
       session.should be_valid
     end
     it "if correct duration is valid" do 
-      session.duration = "150 min"
+      session.duration = "140 min"
       session.should be_valid
     end
     it "if incorrect duration is invalid" do 

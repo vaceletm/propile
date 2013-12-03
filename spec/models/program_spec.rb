@@ -632,7 +632,7 @@ describe Program do
         program_entries.should be_empty
       end
       it "returns emtpy list for program with sessions with only other topics" do 
-        pe = a_program_entry_for(program,"technology")
+        pe = a_program_entry_for(program,"talk")
         program_entries = program.program_entries_for_topic("workshop")
         program_entries.should be_empty
       end
