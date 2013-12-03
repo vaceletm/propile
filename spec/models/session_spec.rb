@@ -299,7 +299,7 @@ describe Session do
     end
     it "if laptops_required is yes returns non-empty string" do 
       session.laptops_required = "yes"
-      session.printable_laptops_required.should == "bring laptop"
+      session.printable_laptops_required.should == "Apporter ordi"
     end
   end
 
@@ -422,11 +422,11 @@ describe Session do
     end
     it "session newer than given date" do 
       session = a_session("23-06-2013", "26-06-2013")
-      check_statuses(session, "22-06-2013", "NEW", "", "", "NEW")
+      check_statuses(session, "22-06-2013", "NOUVEAU", "", "", "NOUVEAU")
     end
     it "session updated since given date" do 
       session = a_session("23-06-2013", "26-06-2013")
-      check_statuses(session, "24-06-2013", "UPDATED", "", "", "UPDATED")
+      check_statuses(session, "24-06-2013", "MIS A JOUR", "", "", "MIS A JOUR")
     end
     it "session older than given date with older review" do 
       session = a_session("23-06-2013", "23-06-2013")
@@ -436,17 +436,17 @@ describe Session do
     it "session older than given date with newer review" do 
       session = a_session("23-06-2013", "23-06-2013")
       a_review_for(session, "27-6-2013")
-      check_statuses(session, "26-06-2013", "", "REVIEWED", "", "REVIEWED")
+      check_statuses(session, "26-06-2013", "", "REVU", "", "REVU")
     end
     it "session newer than given date with newer review" do 
       session = a_session("23-06-2013", "26-06-2013")
       a_review_for(session, "27-6-2013")
-      check_statuses(session, "22-06-2013", "NEW", "REVIEWED", "", "NEW REVIEWED")
+      check_statuses(session, "22-06-2013", "NOUVEAU", "REVU", "", "NOUVEAU REVU")
     end
     it "session updated since given date with newer review" do 
       session = a_session("23-06-2013", "26-06-2013")
       a_review_for(session, "27-6-2013")
-      check_statuses(session, "24-06-2013", "UPDATED", "REVIEWED", "", "UPDATED REVIEWED")
+      check_statuses(session, "24-06-2013", "MIS A JOUR", "REVU", "", "MIS A JOUR REVU")
     end
     it "session older than given date with older review and older comment" do 
       session = a_session("23-06-2013", "23-06-2013")
@@ -458,7 +458,7 @@ describe Session do
       session = a_session("23-06-2013", "23-06-2013")
       review = a_review_for(session, "25-6-2013")
       c = a_comment_for(review, "28-6-2013")
-      check_statuses(session, "26-06-2013", "", "", "COMMENTED", "COMMENTED")
+      check_statuses(session, "26-06-2013", "", "", "COMMENTÉ", "COMMENTÉ")
     end
   end
 

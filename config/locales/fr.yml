@@ -28,3 +28,7 @@ fr:
   recaptcha-not-reachable: "Recaptcha est injoignable"
   not_authorized: "Action non autorisée"
 
+  activerecord:
+    errors:
+	  messages:
+	    record_invalid: "Enregistrement incorrect"
