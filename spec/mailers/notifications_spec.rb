@@ -15,7 +15,7 @@ describe Notifications do
     end
 
     it "renders the body" do
-      mail.body.encoded.should match("Merci d'avoir déposé le sujet")
+      mail.body.encoded.should match("Bonjour")
       mail.body.encoded.should match session.title
       mail.body.encoded.should match(account_response_session_url(presenter_login_guid))
     end
