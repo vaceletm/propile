@@ -105,7 +105,7 @@ class Session < ActiveRecord::Base
   end
 
   def printable_laptops_required
-    (laptops_required and laptops_required == "yes") ?  "Apporter ordi" : ""
+    (laptops_required and laptops_required == "oui") ?  "Apporter ordi" : ""
   end
 
   def status (since)
