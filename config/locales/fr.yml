@@ -25,6 +25,6 @@ en:
         send_password: "Réinitialiser le mot de passe"
   sessions:
     captcha_error: "Vous n'avez pas rempli correctement le catcha"
-  recaptcha-not-reachable: "Recaptcha was not reachable"
+  recaptcha-not-reachable: "Recaptcha est injoignable"
   not_authorized: "Action non autorisée"
 
