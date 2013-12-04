@@ -57,7 +57,7 @@ describe Notifications do
       mail.body.encoded.should match review.score.to_s
       mail.body.encoded.should match review.things_i_like
       mail.body.encoded.should match review.things_to_improve
-      mail.body.encoded.should match(review_url(review))
+      capybara_mail.find('a')['href'].should == review_url(review)
     end
   end
 
