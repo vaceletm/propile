@@ -16,6 +16,8 @@ fr:
   notifications:
     session_submit:
       subject: "Merci d'avoir déposé le sujet"
+    password_reset:
+      subject: "Votre mot de passe a été changé"
   account:
     sessions:
       new:

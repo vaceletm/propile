@@ -16,6 +16,8 @@ en:
   notifications:
     session_submit:
       subject: "Thank you for submitting your session"
+    password_reset:
+      subject: "Your password has been reset"
   account:
     sessions:
       new:

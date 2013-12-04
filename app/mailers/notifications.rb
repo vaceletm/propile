@@ -6,7 +6,7 @@
 
   def account_reset(account)
     @account = account
-    mail to: account.email
+    mail to: account.email, :subject => Propile::Application.mail_subject_prefix + I18n.t('notifications.password_reset.subject')
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -33,6 +33,5 @@
     @session= @review.session
     mail to: email, :subject => Propile::Application.mail_subject_prefix + "Un commentaire a été déposé pour la revue sur la session '#{@session.title}'"
   end
-
   
 end
