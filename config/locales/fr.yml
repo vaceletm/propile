@@ -19,7 +19,7 @@ fr:
   account:
     sessions:
       new:
-        create_session: "Se connecter"
+        create_session: "Connexion"
     password_resets:
       new:
         send_password: "Réinitialiser le mot de passe"
