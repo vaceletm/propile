@@ -26,7 +26,7 @@ describe Notifications do
     let(:mail) { Notifications.account_reset account }
 
     it "renders the headers" do
-      mail.subject.should eq("Votre compte a été réinitialisé")
+      mail.subject.should eq(Propile::Application.mail_subject_prefix + I18n.t('notifications.password_reset.subject'))
       mail.to.should eq([account.email])
       mail.from.should eq([Notifications::FromAddress])
     end
