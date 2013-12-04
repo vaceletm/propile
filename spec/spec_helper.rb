@@ -47,6 +47,7 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
   config.include RequestUserHelpers, type: :feature
+  config.include MailerMacros, type: :mailer
 end
 
 Capybara.configure do |config|

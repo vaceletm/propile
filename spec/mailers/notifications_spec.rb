@@ -2,6 +2,8 @@
 
 describe Notifications do
 
+  let(:capybara_mail) { mail_to_capybara_fragment(mail) }
+
   describe "session_submit" do
     let(:presenter) { FactoryGirl.create :presenter }
     let(:presenter_login_guid) { presenter.account.authentication_token }
@@ -17,7 +19,10 @@ describe Notifications do
     it "renders the body" do
       mail.body.encoded.should match("Bonjour")
       mail.body.encoded.should match session.title
-      mail.body.encoded.should match(account_response_session_url(presenter_login_guid))
+    end
+
+    it "contains an account response url" do
+      capybara_mail.find('a', text: 'connecter')['href'].should == account_response_session_url(presenter_login_guid)
     end
   end
 
@@ -32,7 +37,7 @@ describe Notifications do
     end
 
     it "puts the response url in the body" do
-      mail.body.encoded.should include(account_response_session_url(account.authentication_token))
+      capybara_mail.find('a')['href'].should == account_response_session_url(account.authentication_token)
     end
   end
 
@@ -70,8 +75,8 @@ describe Notifications do
     it "renders the body" do
       mail.body.encoded.should match session.title
       mail.body.encoded.should match comment.presenter.name 
-      mail.body.encoded.should match review.presenter.name 
-      mail.body.encoded.should match(comment_url(comment))
+      mail.body.encoded.should match review.presenter.name
+      capybara_mail.find('a')['href'].should == comment_url(comment)
     end
   end
 end
