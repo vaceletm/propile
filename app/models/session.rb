@@ -43,11 +43,11 @@ class Session < ActiveRecord::Base
   validates :first_presenter, :presence => true
   validates :first_presenter_email, :format => { :with => Presenter::EMAIL_REGEXP }
   validates :second_presenter_email, :format => { :with => Presenter::EMAIL_REGEXP }
-  validates :topic, :inclusion => { :in => AVAILABLE_TOPICS_AND_NAMES_FOR_SELECT.values, :message => "has invalid value: %{value}. Enter a valid topic." }, :allow_blank => true
-  validates :laptops_required, :inclusion => { :in => AVAILABLE_LAPTOPS_REQUIRED.values, :message => "has invalid value: %{value}. Enter yes or no." }, :allow_blank => true 
-  validates :duration, :inclusion => { :in => AVAILABLE_DURATION, :message => "has invalid value: %{value}. " }, :allow_blank => true 
+  validates :topic, :inclusion => { :in => AVAILABLE_TOPICS_AND_NAMES_FOR_SELECT.values, :message => "a une valeur incorrecte: %{value}. Entrez une nature de session valable." }, :allow_blank => true
+  validates :laptops_required, :inclusion => { :in => AVAILABLE_LAPTOPS_REQUIRED.values, :message => "a une valeur incorrecte: %{value}. Saisissez oui ou non." }, :allow_blank => true 
+  validates :duration, :inclusion => { :in => AVAILABLE_DURATION, :message => "a une valeur incorrecte: %{value}. " }, :allow_blank => true 
   validates_numericality_of :max_participants, :allow_blank => true
-  validates :session_type, :inclusion => { :in => AVAILABLE_SESSION_TYPE, :message => "has invalid value: %{value}. " }, :allow_blank => true
+  validates :session_type, :inclusion => { :in => AVAILABLE_SESSION_TYPE, :message => "a une valeur incorrecte: %{value}. " }, :allow_blank => true
 
 
   public
@@ -153,7 +153,7 @@ class Session < ActiveRecord::Base
   end
 
   def laptops_required?
-    laptops_required.present? && laptops_required == "yes"
+    laptops_required.present? && laptops_required == "oui"
   end
 
   def has_materials?
