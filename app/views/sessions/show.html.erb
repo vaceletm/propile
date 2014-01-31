@@ -38,17 +38,18 @@
   <div class="flashy">CETTE SESSION A ETE ANNULEE</div>
 <%else%>
   <div>
-    by <%= session_presenter_names(@session) %>
+    by <i>Nom de l'orateur masqué volontairement</i>  <!--<%= session_presenter_names(@session) %>-->
     <hr />
   </div>
   <%= render :partial => 'sessions/export_description',:locals => { :this_session => @session }  %>
+  <!--
   <% if  @session.presenters[0]  %>
     <%= render :partial => 'presenters/export_description',:locals => { :this_presenter => @session.presenters[0] }  %>
   <% end %>
   <% if  @session.presenters[1] %>
     <%= render :partial => 'presenters/export_description',:locals => { :this_presenter => @session.presenters[1] }  %>
   <% end %>
-
+  -->
   <%= render 'sessions/show_short', :session => @session  %>
 <% end %>
 
