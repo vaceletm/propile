@@ -16,7 +16,7 @@
   <%= link_to 'retour à la liste des sessions', sessions_path %>
 <% end %>
 
-<%= content_for :extra_info do %> 
+<%= content_for :extra_info do %>
   <% if PropileConfig.voting_active?  %>
     <div class="flashy">
       <% if @current_presenter_has_voted_for_this_session  %>
@@ -29,7 +29,7 @@
   <% end %>
 <% end %>
 
-<%= content_for :created_and_modified do %> 
+<%= content_for :created_and_modified do %>
   Session créée: <%= l @session.created_at %> --
   Modifiée: <%= l @session.updated_at %>
 <% end %>
@@ -38,18 +38,24 @@
   <div class="flashy">CETTE SESSION A ETE ANNULEE</div>
 <%else%>
   <div>
-    by <i>Nom de l'orateur masqué volontairement</i>  <!--<%= session_presenter_names(@session) %>-->
+      <% if @show_presenter_active  %>
+          <%= session_presenter_names(@session) %>
+      <% else %>
+          Nom de l'orateur masqué volontairement
+      <% end %>
     <hr />
   </div>
   <%= render :partial => 'sessions/export_description',:locals => { :this_session => @session }  %>
-  <!--
-  <% if  @session.presenters[0]  %>
-    <%= render :partial => 'presenters/export_description',:locals => { :this_presenter => @session.presenters[0] }  %>
+
+    <% if @show_presenter_active  %>
+      <% if  @session.presenters[0]  %>
+        <%= render :partial => 'presenters/export_description',:locals => { :this_presenter => @session.presenters[0] }  %>
+      <% end %>
+      <% if  @session.presenters[1] %>
+        <%= render :partial => 'presenters/export_description',:locals => { :this_presenter => @session.presenters[1] }  %>
+      <% end %>
   <% end %>
-  <% if  @session.presenters[1] %>
-    <%= render :partial => 'presenters/export_description',:locals => { :this_presenter => @session.presenters[1] }  %>
-  <% end %>
-  -->
+
   <%= render 'sessions/show_short', :session => @session  %>
 <% end %>
 

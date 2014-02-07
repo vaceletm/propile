@@ -28,6 +28,17 @@
     </td>
     <td> <i> voting becomes active 2 weeks before the program committee meeting </i> </td>
   </tr> 
+  <tr>
+    <td> Show presenter active: </td>
+    <td> <%= PropileConfig.show_presenter_active? %> </td>
+    <td>
+      <%= form_for(PropileConfig.new, :url => url_for(:action => 'toggle'), method: :put ) do |f| %>
+        <%= hidden_field_tag "field[prop_name]", PropileConfig::SHOW_PRESENTER_ACTIVE %>
+        <%= f.submit 'toggle' %>
+      <% end %>
+    </td>
+    <td> <i> Showing session presenters when the program commttee is done </i> </td>
+  </tr>
 </table>
 
 <h1>Configuration for test purposes</h1>

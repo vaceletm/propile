@@ -31,7 +31,10 @@
             <% m.tab("Accueil", 'pages') %>
             <% m.tab("Tableau de bord", "presenters#dashboard") %>
             <% m.tab("Sessions", "sessions") %>
+        <% if @show_presenter_active  %>
             <% m.tab("Orateurs", "presenters") %>
+        <% end %>
+
             <% m.tab("Proposer une session", "sessions#new") %>
             <% m.tab("Votes", "votes") %>
             <% m.tab("Programmes", "programs") %>

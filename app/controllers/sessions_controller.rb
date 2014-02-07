@@ -29,6 +29,7 @@ class SessionsController < ApplicationController
       @sessions = Session.includes(eager_loaded).order( "upper("+sort_column+") " + sort_direction).all
     end
     @voting_active = PropileConfig.voting_active?
+    @show_presenter_active = PropileConfig.show_presenter_active?
     @maintainer = current_account.maintainer?
     @presenter = current_account.presenter
     @previous_login_time = previous_login_time

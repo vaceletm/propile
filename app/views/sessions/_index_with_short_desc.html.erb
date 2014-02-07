@@ -4,7 +4,11 @@
     <tr class="<%= session.topic %>">
     <td> <%= i+1 %> </td>
     <td> </td>
-    <td> <b> <%= link_to w(session.title) , session %> </b> <i>par <%= session_presenter_names(session) %></i>
+    <td>
+        <b> <%= link_to w(session.title) , session %> </b>
+        <% if @show_presenter_active  %>
+            <i>par <%= session_presenter_names(session) %></i>
+        <% end %>
    </td>
     </tr>
     <tr>

@@ -50,14 +50,14 @@
   <%end%> 
   <br/>
   <hr/>
-<%end%> 
+<%end%>
 
-
+<% if @show_presenter_active  %>
 <div style="width:45%; float:left; margin:0 20px;min-width:400px; ">
   <h2>Sessions submitted by <%= @presenter.name  %> </h2>
   <%= render 'sessions/index_simple', :sessions => @presenter.sessions, :sortable => false  %>
 </div>
-
+<% end %>
 <div style="width:45%; float:left; margin:0 20px;min-width:400px; ">
   <h2>Sessions reviewed by <%= @presenter.name  %> </h2>
   <%= render 'sessions/index_simple', :sessions => @sessions_reviewed_by_you, :sortable => false  %>

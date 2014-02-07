@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131230174900) do
+ActiveRecord::Schema.define(:version => 20140125212400) do
 
   create_table "accounts", :force => true do |t|
     t.string   "email",                :limit => 150,                          :null => false
@@ -126,8 +126,8 @@ ActiveRecord::Schema.define(:version => 20131230174900) do
     t.string   "other_limitations"
     t.string   "room_setup"
     t.string   "materials_needed"
-    t.string   "session_goal"
-    t.string   "outline_or_timetable"
+    t.text     "session_goal"
+    t.text     "outline_or_timetable"
     t.integer  "first_presenter_id"
     t.integer  "second_presenter_id"
     t.string   "material_description", :limit => 128

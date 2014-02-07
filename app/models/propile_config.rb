@@ -2,7 +2,8 @@ class PropileConfig < ActiveRecord::Base
   attr_accessible :description, :name, :value
 
   SUBMIT_SESSION_ACTIVE = "submit_session_active" 
-  VOTING_ACTIVE = "voting_active" 
+  VOTING_ACTIVE = "voting_active"
+  SHOW_PRESENTER_ACTIVE = "show_presenter_active"
 
   def self.is_set (prop_name)
     prop = find_by_name(prop_name) 
@@ -37,6 +38,14 @@ class PropileConfig < ActiveRecord::Base
 
   def self.voting_active=(prop_value)
     set( VOTING_ACTIVE, prop_value )
+  end
+
+  def self.show_presenter_active?
+    is_set( SHOW_PRESENTER_ACTIVE )
+  end
+
+  def self.show_presenter_active=(prop_value)
+    set( SHOW_PRESENTER_ACTIVE, prop_value )
   end
 
 end

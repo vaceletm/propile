@@ -114,6 +114,7 @@ class PropileConfigsController < ApplicationController
     Presenter.archive_all
     PropileConfig.submit_session_active=false
     PropileConfig.voting_active=false
+    PropileConfig.show_presenter_active=false
 
     respond_to do |format|
       format.html { redirect_to propile_configs_url, notice: 'New conference is started.' }
