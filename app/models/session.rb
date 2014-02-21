@@ -9,11 +9,11 @@ class Session < ActiveRecord::Base
   CANCELED = 1
   CONFIRMED = 2
   AVAILABLE_TOPICS_AND_NAMES = { 
-    "talk" => "Conference (Talk)", 
-    "game" => "Jeu (Game)", 
-	"workshop" => "Atelier participatif (hands-on workshop)",
-	"demo" => "Présentation d'un outil (Tool demo)", 
-	"debate" => "Débat ouvert (Open debate)"
+    "product" => "Quel produit ?",
+    "collaborate" => "Comment on collabore ?",
+    "build" => "Comment on construit ?",
+    "organization" => "Quelle organisation ?",
+    "tropical" => "Courants d'air frais"
   }
   AVAILABLE_TOPICS_AND_NAMES_FOR_SELECT = AVAILABLE_TOPICS_AND_NAMES.invert
   AVAILABLE_TOPICS = AVAILABLE_TOPICS_AND_NAMES.keys

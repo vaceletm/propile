@@ -220,7 +220,7 @@ describe Session do
     end
     context "existent topic" do 
       it "returns name from hash" do 
-        Session.topic_name("workshop").should == "Atelier participatif (hands-on workshop)" 
+        Session.topic_name("product").should == "Quel produit ?"
       end 
     end
   end
