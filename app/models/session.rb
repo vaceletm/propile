@@ -1,4 +1,6 @@
-﻿require 'prawn'
+﻿# encoding: utf-8
+
+require 'prawn'
 require 'prawn/measurement_extensions'
 
 class Session < ActiveRecord::Base
@@ -8,12 +10,12 @@ class Session < ActiveRecord::Base
   DRAFT = 0
   CANCELED = 1
   CONFIRMED = 2
-  AVAILABLE_TOPICS_AND_NAMES = { 
+  AVAILABLE_TOPICS_AND_NAMES = {
     "product" => "Quel produit ?",
-    "collaborate" => "Comment on collabore ?",
-    "build" => "Comment on construit ?",
-    "organization" => "Quelle organisation ?",
-    "tropical" => "Courants d'air frais"
+    "collaborate" => "Comment collaborer pour y aboutir ?",
+    "build" => "Comment le construire ?",
+    "organization" => "Quelle organisation d\'entreprise ?",
+    "tropical" => "Bouffée d\'air frais"
   }
   AVAILABLE_TOPICS_AND_NAMES_FOR_SELECT = AVAILABLE_TOPICS_AND_NAMES.invert
   AVAILABLE_TOPICS = AVAILABLE_TOPICS_AND_NAMES.keys
