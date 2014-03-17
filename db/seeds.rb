@@ -20,7 +20,7 @@ end
 
 Account.create!(
   id: 1,
-  email: 'david.boissier@gmail.com',
+  email: 'manuel.vacelet@gmail.com',
   role: 'maintainer',
   encrypted_password: '$2a$10$DGTDwo7Y0knxK8FSYufG6OQE9jaMsUGxsuSJw71V.9MFRAZbPA6eK',
   password_salt: '$2a$10$DGTDwo7Y0knxK8FSYufG6O',
@@ -81,94 +81,94 @@ ActiveRecord::Base.connection.execute(
     "ALTER SEQUENCE #{table_name}_id_seq RESTART WITH 3"
 )
 
-Session.create!(
-  id: 1,
-  title: "Rob en Vera's brand new session",
-  description: "Eerst gaan we kleuern\r\n\r\nen dan \r\n\r\nGaan we tekenen \r\n\r\nof andersom",
-  created_at: Time.new( 2012, 5, 9, 8, 43 ),
-  updated_at: Time.new( 2013, 11, 9, 11, 10 ),
-  sub_title: nil,
-  short_description: nil,
-  session_type: nil,
-  topic: 'other',
-  duration: nil,
-  intended_audience: nil,
-  experience_level: nil,
-  max_participants: nil,
-  laptops_required: 'no',
-  other_limitations: nil,
-  room_setup: nil,
-  materials_needed: nil,
-  session_goal: nil,
-  outline_or_timetable: nil,
-  first_presenter_id: 1,
-  second_presenter_id: 2,
-  material_description: nil,
-  material_url: nil,
-  state: 0,
-)
+# Session.create!(
+#   id: 1,
+#   title: "Rob en Vera's brand new session",
+#   description: "Eerst gaan we kleuern\r\n\r\nen dan \r\n\r\nGaan we tekenen \r\n\r\nof andersom",
+#   created_at: Time.new( 2012, 5, 9, 8, 43 ),
+#   updated_at: Time.new( 2013, 11, 9, 11, 10 ),
+#   sub_title: nil,
+#   short_description: nil,
+#   session_type: nil,
+#   topic: 'other',
+#   duration: nil,
+#   intended_audience: nil,
+#   experience_level: nil,
+#   max_participants: nil,
+#   laptops_required: 'no',
+#   other_limitations: nil,
+#   room_setup: nil,
+#   materials_needed: nil,
+#   session_goal: nil,
+#   outline_or_timetable: nil,
+#   first_presenter_id: 1,
+#   second_presenter_id: 2,
+#   material_description: nil,
+#   material_url: nil,
+#   state: 0,
+# )
 
 
-table_name = Session.table_name
-ActiveRecord::Base.connection.execute(
-    "ALTER SEQUENCE #{table_name}_id_seq RESTART WITH 2"
-)
+# table_name = Session.table_name
+# ActiveRecord::Base.connection.execute(
+#     "ALTER SEQUENCE #{table_name}_id_seq RESTART WITH 2"
+# )
 
-Review.create!(
-  id: 1,
-  things_i_like: 'asdasd',
-  score: 10,
-  session_id: 1,
-  presenter_id: 1,
-  created_at: Time.new( 2012, 5, 23, 19, 30 ),
-  updated_at: Time.new( 2012, 5, 23, 19, 30 ),
-  things_to_improve: nil,
-)
+# Review.create!(
+#   id: 1,
+#   things_i_like: 'asdasd',
+#   score: 10,
+#   session_id: 1,
+#   presenter_id: 1,
+#   created_at: Time.new( 2012, 5, 23, 19, 30 ),
+#   updated_at: Time.new( 2012, 5, 23, 19, 30 ),
+#   things_to_improve: nil,
+# )
 
-Review.create!(
-  id: 2,
-  things_i_like: '123123',
-  score: 8,
-  session_id: 1,
-  presenter_id: 2,
-  created_at: Time.new( 2012, 5, 29, 9, 19 ),
-  updated_at: Time.new( 2012, 5, 29, 9, 19 ),
-  things_to_improve: 'foo',
-)
+# Review.create!(
+#   id: 2,
+#   things_i_like: '123123',
+#   score: 8,
+#   session_id: 1,
+#   presenter_id: 2,
+#   created_at: Time.new( 2012, 5, 29, 9, 19 ),
+#   updated_at: Time.new( 2012, 5, 29, 9, 19 ),
+#   things_to_improve: 'foo',
+# )
 
-table_name = Review.table_name
-ActiveRecord::Base.connection.execute(
-    "ALTER SEQUENCE #{table_name}_id_seq RESTART WITH 3"
-)
+# table_name = Review.table_name
+# ActiveRecord::Base.connection.execute(
+#     "ALTER SEQUENCE #{table_name}_id_seq RESTART WITH 3"
+# )
 
-Comment.create!(
-  id: 1,
-  body: 'gee thanks',
-  review_id: 1,
-  presenter_id: 2,
-  created_at: Time.new( 2012, 05, 29, 9, 20 ),
-  updated_at: Time.new( 2012, 05, 29, 9, 20 ),
-)
+# Comment.create!(
+#   id: 1,
+#   body: 'gee thanks',
+#   review_id: 1,
+#   presenter_id: 2,
+#   created_at: Time.new( 2012, 05, 29, 9, 20 ),
+#   updated_at: Time.new( 2012, 05, 29, 9, 20 ),
+# )
 
-Comment.create!(
-  id: 2,
-  body: 'nog een comment',
-  review_id: 1,
-  presenter_id: 1,
-  created_at: Time.new( 2012, 5, 29, 10, 4 ),
-  updated_at: Time.new( 2012, 5, 29, 10, 4 ),
-)
+# Comment.create!(
+#   id: 2,
+#   body: 'nog een comment',
+#   review_id: 1,
+#   presenter_id: 1,
+#   created_at: Time.new( 2012, 5, 29, 10, 4 ),
+#   updated_at: Time.new( 2012, 5, 29, 10, 4 ),
+# )
 
-Comment.create!(
-  id: 3,
-  body: 'asdasdasd',
-  review_id: 1,
-  presenter_id: 1,
-  created_at: Time.new( 2012, 5, 29, 12, 37 ),
-  updated_at: Time.new( 2012, 5, 29, 12, 37 ),
-)
+# Comment.create!(
+#   id: 3,
+#   body: 'asdasdasd',
+#   review_id: 1,
+#   presenter_id: 1,
+#   created_at: Time.new( 2012, 5, 29, 12, 37 ),
+#   updated_at: Time.new( 2012, 5, 29, 12, 37 ),
+# )
 
-table_name = Comment.table_name
-ActiveRecord::Base.connection.execute(
-    "ALTER SEQUENCE #{table_name}_id_seq RESTART WITH 4"
-)
+# table_name = Comment.table_name
+# ActiveRecord::Base.connection.execute(
+#     "ALTER SEQUENCE #{table_name}_id_seq RESTART WITH 4"
+# )
