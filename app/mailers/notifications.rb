@@ -1,6 +1,5 @@
-﻿# -*- coding: utf-8-with-signature -*-
-class Notifications < ActionMailer::Base
- 
+﻿class Notifications < ActionMailer::Base
+
   FromAddress = Propile::Application.mail_sender
   default from: FromAddress
   helper :application
