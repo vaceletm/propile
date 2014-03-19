@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
@@ -80,7 +81,11 @@ module Propile
     end
 
     def self.mail_subject_prefix
-      "[Agile France 2014]"
+      "[Agile Grenoble 2014]"
+    end
+
+    def self.mail_sender
+      "orateur@agile-grenoble.org"
     end
 
     def self.version

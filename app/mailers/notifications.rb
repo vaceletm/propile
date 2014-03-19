@@ -1,6 +1,7 @@
-﻿class Notifications < ActionMailer::Base
+﻿# -*- coding: utf-8-with-signature -*-
+class Notifications < ActionMailer::Base
  
-  FromAddress = "contact@conference-agile.fr"
+  FromAddress = Propile::Application.mail_sender
   default from: FromAddress
   helper :application
 
