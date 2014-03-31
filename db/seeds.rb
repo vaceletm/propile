@@ -32,20 +32,6 @@ Account.create!(
   last_login: nil,
 )
 
-Account.create!(
-  id: 2,
-  email: 'vera.peeters@qwan.it',
-  role: 'presenter',
-  encrypted_password: nil,
-  password_salt: nil,
-  authentication_token: nil,
-  confirmed_at: nil,
-  reset_at: nil,
-  created_at: Time.new( 2012, 5, 24, 21, 47 ),
-  updated_at: Time.new( 2012, 5, 24, 21, 47 ),
-  last_login: nil,
-)
-
 table_name = Account.table_name
 ActiveRecord::Base.connection.execute(
     "ALTER SEQUENCE #{table_name}_id_seq RESTART WITH 3"
@@ -59,18 +45,6 @@ Presenter.create!(
   created_at: Time.new( 2012, 5, 4, 8, 43 ),
   updated_at: Time.new( 2012, 5, 24, 21, 47 ),
   account_id: 1,
-  twitter_id: nil,
-  profile_image: nil,
-  website: nil,
-)
-
-Presenter.create!(
-  id: 2,
-  name: nil,
-  bio: nil,
-  created_at: Time.new( 2012, 5, 4, 8, 43 ),
-  updated_at: Time.new( 2012, 5, 24, 21, 47 ),
-  account_id: 2,
   twitter_id: nil,
   profile_image: nil,
   website: nil,

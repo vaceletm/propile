@@ -11,11 +11,10 @@ class Session < ActiveRecord::Base
   CANCELED = 1
   CONFIRMED = 2
   AVAILABLE_TOPICS_AND_NAMES = {
-    "product" => "Quel produit ?",
-    "collaborate" => "Comment collaborer pour y aboutir ?",
-    "build" => "Comment le construire ?",
-    "organization" => "Quelle organisation d\'entreprise ?",
-    "tropical" => "Bouffée d\'air frais"
+    "pleasure" => "Plaisir & Excellence",
+    "sharing" => "Partage & Émulation",
+    "desire" => "Désir & Réalité",
+    "change" => "Changement & Energie",
   }
   AVAILABLE_TOPICS_AND_NAMES_FOR_SELECT = AVAILABLE_TOPICS_AND_NAMES.invert
   AVAILABLE_TOPICS = AVAILABLE_TOPICS_AND_NAMES.keys
