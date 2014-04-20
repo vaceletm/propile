@@ -1,16 +1,16 @@
-<%= title "Program Version: #{@program.version}" %>
+<%= title "Version du Programme: #{@program.version}" %>
 
 <%= content_for :sub_menu do %> 
   <%= link_to 'Edit', controller: 'programs', action: 'edit', id: @program.to_param %>
 <% end %>
 <%= content_for :extra_info do %> 
-  <i> This page is for maintainers only </i>
+  <i> Cette page est pour les modérateurs seulement </i>
 <% end %>
 
 <%= render 'programs/program_matrix', :program => @program, :editable => false %>
 
 <div class="alignright">
-  Created: <%= l @program.created_at %> -- 
-  Modified: <%= l @program.updated_at %> 
+  Créé le: <%= l @program.created_at %> -- 
+  Modifié le: <%= l @program.updated_at %> 
 </div>
 

@@ -5,13 +5,13 @@
   <%= link_to 'Back to presenters', presenters_path %> 
   <br/>
   <% if current_account.maintainer? %>
-    <i>(edit is only possible for presenter himself or for a maintainer)</i> 
+    <i>(L'édition est possible seulement par le présentateur ou un modérateur)</i> 
   <% end %> 
 <% end %>
 
 <%= content_for :created_and_modified do %> 
-  Created: <%= l @presenter.created_at %> -- 
-  Modified: <%= l @presenter.updated_at %> 
+  Créé le: <%= l @presenter.created_at %> -- 
+  Modifié le: <%= l @presenter.updated_at %> 
 <% end %>
 
   <% if @presenter.profile_image.present? %>
@@ -28,8 +28,8 @@
 <% end %>
 
 <% if current_account.maintainer? %>
-  <div> <i>maintainer: <%= @presenter.account.maintainer? %> <br> </i> </div>
-  <div> <i>last login time: <%= @presenter.account.last_login %> <br> </i> </div>
+  <div> <i>modérateur: <%= @presenter.account.maintainer? %> <br> </i> </div>
+  <div> <i>dernière connexion le: <%= @presenter.account.last_login %> <br> </i> </div>
 <% end %>
 <hr style="clear:both;">
 
@@ -41,10 +41,10 @@
 <hr>
 
 <% if @you_are_current_user==true && PropileConfig.voting_active?  %> 
-  <h2>Your votes </h2>
-  <div><i>(only you can see this)</i></div>
+  <h2>Vos votes </h2>
+  <div><i>(vous ne pouvez voir que cela)</i></div>
   <% if @presenter.votes.empty? %> 
-    You have not yet voted.
+    Vous avez déjà voté.
   <% else %> 
     <%= render 'votes/index_for_one_voter', :votes => @presenter.votes  %>
   <%end%> 
@@ -54,12 +54,12 @@
 
 <% if @show_presenter_active  %>
 <div style="width:45%; float:left; margin:0 20px;min-width:400px; ">
-  <h2>Sessions submitted by <%= @presenter.name  %> </h2>
+  <h2>Sessions soumis par <%= @presenter.name  %> </h2>
   <%= render 'sessions/index_simple', :sessions => @presenter.sessions, :sortable => false  %>
 </div>
 <% end %>
 <div style="width:45%; float:left; margin:0 20px;min-width:400px; ">
-  <h2>Sessions reviewed by <%= @presenter.name  %> </h2>
+  <h2>Sessions revu par <%= @presenter.name  %> </h2>
   <%= render 'sessions/index_simple', :sessions => @sessions_reviewed_by_you, :sortable => false  %>
 </div>
 

@@ -1,15 +1,15 @@
-<%= title "Editing Comment on Review for: #{@comment.review.session.title}" %>
+<%= title "Edition de commentaire sur la revue pour: #{@comment.review.session.title}" %>
 <%= content_for :sub_menu do %> 
-  <%= link_to 'Back to Session', @edit_comment.review.session %>
+  <%= link_to 'Retour à Session', @edit_comment.review.session %>
 <% end %>
 
 <%= content_for :extra_info do %> 
-  <div><i>The goal of a review is to help to improve this session proposal.</i></div>
+  <div><i>Le but de la revue est d'aider à améliorer cette session proposée.</i></div>
 <% end %>
 
 <%= content_for :created_and_modified do %> 
-  Created: <%= l @comment.created_at %> -- 
-  Modified: <%= l @comment.updated_at %> 
+  Creatée: <%= l @comment.created_at %> -- 
+  Modifiée: <%= l @comment.updated_at %> 
 <% end %>
 
 <%= render 'form', :comment=>@edit_comment %>

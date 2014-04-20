@@ -1,4 +1,4 @@
-%h1 Listing archived_presenters
+%h1 Liste des archived_presenters
 
 %table
   %tr
@@ -8,10 +8,10 @@
 
   - @archived_presenters.each do |archived_presenter|
     %tr
-      %td= link_to 'Show', archived_presenter
-      %td= link_to 'Edit', edit_archived_presenter_path(archived_presenter)
-      %td= link_to 'Destroy', archived_presenter, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Voir', archived_presenter
+      %td= link_to 'Editer', edit_archived_presenter_path(archived_presenter)
+      %td= link_to 'Supprimer', archived_presenter, :confirm => 'êtes vous sur?', :method => :delete
 
 %br
 
-= link_to 'New Archived presenter', new_archived_presenter_path
+= link_to 'Nouveau présentateur archivé', new_archived_presenter_path

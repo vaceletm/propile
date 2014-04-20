@@ -7,13 +7,13 @@
   <table class="propertytable">
   <tr > <td><%= f.label :version %>      </td>
         <td><%= text_field :program, :version, :size => "100" %> 
-            <i>only displayed in program list</i></td></tr>
+            <i>seulement afficher dans la liste du programme</i></td></tr>
   <tr > <td><%= f.label :room_row %>     </td>
         <td><%= text_field :program, :room_row, :size => "3" %> 
-            <i>this row contains the room-descriptions for the different tracks</i></td></tr>
+            <i>Cette ligne contiens la description des salles pour les différents tracks</i></td></tr>
   <tr > <td><%= f.label :hour_column %>  </td>
         <td><%= text_field :program, :hour_column, :size => "3" %> 
-            <i>this column contains the starting hours for the different slots</i></td></tr>
+            <i>Cet colonne contiens les heures de début des différents créneaux</i></td></tr>
   </table>
   <div >
     <%= f.submit "update properties" %>

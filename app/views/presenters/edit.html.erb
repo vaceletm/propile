@@ -1,12 +1,12 @@
 <%= title "Editing presenter" %>
 <%= content_for :sub_menu do %> 
-  <%= link_to 'Show', @presenter %> 
-  <%= link_to 'Back to presenters', presenters_path %>
+  <%= link_to 'Voir', @presenter %> 
+  <%= link_to 'Retour au présentateurs', presenters_path %>
 <% end %>
 
 <%= content_for :created_and_modified do %> 
-  Created: <%= l @presenter.created_at %> -- 
-  Modified: <%= l @presenter.updated_at %> 
+  Créé le: <%= l @presenter.created_at %> -- 
+  Modifié le: <%= l @presenter.updated_at %> 
 <% end %>
 
 <%= render 'form' %>

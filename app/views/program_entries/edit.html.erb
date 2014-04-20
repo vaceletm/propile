@@ -4,8 +4,8 @@
   <%= link_to "Back to #{@program_entry.program.version}", @program_entry.program %> 
 <% end %>
 <%= content_for :created_and_modified do %> 
-  Created: <%= l @program_entry.created_at %> -- 
-  Modified: <%= l @program_entry.updated_at %> 
+  Créé le: <%= l @program_entry.created_at %> -- 
+  Modifié le: <%= l @program_entry.updated_at %> 
 <% end %>
 
 <%= render 'form' %>

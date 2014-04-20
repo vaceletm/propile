@@ -1,11 +1,11 @@
-<%= title "New review for:  #{@review.session.title}" %>
+<%= title "Nouvelle revue pour:  #{@review.session.title}" %>
 
 <%= content_for :sub_menu do %> 
-  <%= link_to 'Back to Session', @review.session %>
+  <%= link_to 'Retour ào Session', @review.session %>
 <% end %>
 
 <%= content_for :extra_info do %> 
-  <div><i>The goal of a review is to help to improve this session proposal.</i></div>
+  <div><i>Le but de la revue est d'aider à améliorer la session proposée.</i></div>
 <% end %>
 
 <%= render 'form', review: @review, :show_session=>true %>

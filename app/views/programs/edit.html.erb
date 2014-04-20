@@ -3,34 +3,34 @@
     <%= link_to 'Show', @program %>
 <% end %>
 <%= content_for :extra_info do %> 
-  <i> This page is for maintainers only </i>
+  <i> Cette page est pour les modérateurs seulement </i>
 <% end %>
 <%= content_for :created_and_modified do %> 
-  Created: <%= l @program.created_at %> -- 
-  Modified: <%= l @program.updated_at %> 
+  Créé le: <%= l @program.created_at %> -- 
+  Modifié le: <%= l @program.updated_at %> 
 <% end %>
 
 <h3>Info for this program version <%= collapse_button ("programInfo") %> </h3>
 <div id="programInfo" style="display:none;">
-  number of presenters: <%= @program.presentersInProgram.size %> <br />
-  number of sessions: <%= @program.sessionsInProgram.size %> <br />
+  nombre de présenteurs: <%= @program.presentersInProgram.size %> <br />
+  nombre de sessions: <%= @program.sessionsInProgram.size %> <br />
   <%= link_to 'Export CSV', csv_program_path %> 
-    <i> contains Id, Slot, Track, Title, Subtitle, Presenters, Type, Topic, Duration</i><br />
+    <i> N°, Créneau, Track, Titre, Sous-titre, Présenteurs, Type, Sujet, Durée</i><br />
   <%= link_to 'Materials CSV', materials_csv_program_path %> 
-    <i> contains Id, Title, Room, Hour, Max participants, Laptops Required, Other limitations, Room setup, Materials needed, Intended Audience </i><br />
+    <i> N°, Titre, Salle, Heure, Max de participants, PC portable demandé, Autres limitations, Configuration de la salle, Materiels nécessaires, Publique visé </i><br />
   <hr />
 </div>
 <br />
 
-<h3>Printable stuff for this program version  <%= collapse_button ("programPrintStuff") %> </h3>
+<h3>Choses imprimable pour cette version du programme  <%= collapse_button ("programPrintStuff") %> </h3>
 <div id="programPrintStuff" style="display:none;">
-  Session Descriptions: <i>longer description, an A4 for each session, we put them somewhere on the wall </i><br />
-  Session Card: <i>short description on an A6 card, we put them on the Program Board</i> <br />
-  <i>Print them by topic (colour) or all (to check if everything looks ok)</i>
+  Descriptions de Session: <i>description longue, un A4 pour chaque session, nous pouvons la mettre sur le mur </i><br />
+  Carte de Session: <i>description courte sur une carte A6 , nous pouvons le mettre sur le programme papier</i> <br />
+  <i>Imprimer alors par sujet (coleur) ou tout (pour vérifier si tout est ok)</i>
   <table class="tablelist">
     <tr>
-      <th > Session Descriptions (PDF)</th>
-      <th > Session Cards (PDF) </th>
+      <th > Descriptions de Session (PDF)</th>
+      <th > Carte de Session (PDF) </th>
       <th > &nbsp; </th>
     </tr>
     <% for topic in Session::AVAILABLE_TOPICS do 
@@ -45,8 +45,8 @@
       </tr>
     <% end %> 
     <tr>
-      <td><%= link_to 'all', controller: 'programs', action: 'show', id: @program.to_param, format: "pdf" %> </td>
-      <td><%= link_to 'all', controller: 'programs', action: 'program_board_cards', id: @program.to_param, format: "pdf" %> </td>
+      <td><%= link_to 'tout', controller: 'programs', action: 'show', id: @program.to_param, format: "pdf" %> </td>
+      <td><%= link_to 'tout', controller: 'programs', action: 'program_board_cards', id: @program.to_param, format: "pdf" %> </td>
       <td> <%= @program.sessionsInProgram.size %> </td>
     </tr>
   </table>
@@ -54,7 +54,7 @@
 </div>
 <br />
 
-<h3>Modify this program version <%= collapse_button_initially_open ("programMatrix") %> </h3>
+<h3>Modifier cette version de programme <%= collapse_button_initially_open ("programMatrix") %> </h3>
 <div id="programMatrix" style="display:block;">
   <%= render 'programs/program_matrix', :program => @program, :editable => true %>
 </div>
@@ -63,8 +63,8 @@
 <h3>Program properties <%= collapse_button ("programProperties") %> </h3>
 <div id="programProperties" style="display:none;">
   <%= render 'form' %>
-  Average PAF = <%= @program.avgpaf.nil? ? "not yet calculated" : @program.avgpaf %> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
-  <%= link_to '(re-)calculate PAF for this program', controller: 'programs', action: 'calculate_paf', id: @program.to_param %>   
+  FAP moyen = <%= @program.avgpaf.nil? ? "non encore calculaté" : @program.avgpaf %> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
+  <%= link_to '(re-)calculer le FAP de ce programme', controller: 'programs', action: 'calculate_paf', id: @program.to_param %>   
 </div>
 <br />
 

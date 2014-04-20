@@ -13,9 +13,9 @@
           <%= link_to program_entry.session.id.to_s+"- "+program_entry.session.title, program_entry.session %>
       <p class=ProgramMatrix_presenters> <%= session_presenter_names(program_entry.session) %> </p>
       <% if !program_entry.session.confirmed? %>
-        [TO BE CONFIRMED]
+        [A CONFIRMER]
        <% else %>
-        [CONFIRMED
+        [CONFIRMÉ]
       <% end %>
     <% end %>
     <%= wikinize(program_entry.comment) %>

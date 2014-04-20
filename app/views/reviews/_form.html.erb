@@ -6,32 +6,32 @@
 <% if review.filled? %> <div class="editing"> <% end %> 
 
 <% if review.filled? %>
-  <h4><%= collapse_button_initially_open ("review_preview")%> Preview of the review</h4>
+  <h4><%= collapse_button_initially_open ("review_preview")%> Prévisualisation de revue</h4>
   <div id="review_preview" class="review editing_preview">
-    <%= render 'reviews/show', :review => review  %>
+    <%= render 'revues/voir', :review => review  %>
   </div>
 <% end %> 
 
   <div class="in_a_form">
     <div> 
-      What I like: <i>first list the things that you like about this session, why did it get the score you gave it? </i> 
+      Ce que j'aime: <i>première liste des choses que vous aimez à propos de cette session, pourquoi at-il obtenu le score vous lui avez donné? </i> 
     </div>
     <%= f.text_area :things_i_like, :cols => 100, :rows => 3 %>
     <%= link_to '(formatting)', "/pages/formatting", :target => '_blank', :class => 'smalllink' %> 
   </div>
   <div class="in_a_form">
     <div> 
-      I will give you a 10/10 if you improve these things: <i> list improvements to the session: what does the session presenters need to change so that you will give them a 10/10? </i> 
+      Je vais vous donner un 10/10 si vous améliorez ces choses: <i> liste des améliorations à la session: qu'est-ce que les présentateurs de sessions ont besoin de changer de sorte que vous allez leur donner un 10/10? </ i>
     </div>
     <%= f.text_area :things_to_improve, :cols => 100, :rows => 3 %>
     <%= link_to '(formatting)', "/pages/formatting", :target => '_blank', :class => 'smalllink' %> 
   </div>
 
   <div class="in_a_form">
-    I give this session  
+    Je donne à cette session
     <%= f.text_field :score, :size => 3 %> / 10. <br>
-    <i>This number indicates the ratio of "things you like" to "things to improve". <br>
-       If the session is almost perfect, you will give a number close to 10, so this means that the things to improve are only minor improvements.   </i> 
+    <i> Ce nombre indique le rapport de «choses que vous aimez» à «des choses à améliorer". <br>
+        Si la session est presque parfaite, vous donnez un nombre proche de 10, alors cela signifie que les choses à améliorer sont que des améliorations mineures. </ i>
   </div>
 
   <br/>
@@ -40,18 +40,18 @@
     <% if review.new_record? %>
       <%= f.submit "Create" %>
       <% if review.filled? %>
-        <%= link_to 'Cancel Review Creation', review.session %>  
+        <%= link_to 'Annuler la création de revue', review.session %>  
       <% end %>
       <br/>
-      <i>When you create the review, the session presenter(s) and reviewers receive an email. 
+      <i>Lors que vous créez une revue, le(s) présentateur(s) de la session et les relecteurs reçoivent un couriel. 
         <% if Propile::Application.config.action_mailer.delivery_method == :test %>
-          <br/>!!!  Mail is not sent in test environment !!!
+          <br/>!!!  Message n'est pas parti dans l'environnement de test !!!
         <% end %>
       </i>
     <% else %>
       <%= f.submit "Update" %>
       <% if review.filled? %>
-        <%= link_to 'Cancel Review Update', review.session %>  
+        <%= link_to 'Annuler la modification de revue', review.session %>  
       <% end %>
     <% end %>
   </div>

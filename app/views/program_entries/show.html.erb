@@ -1,22 +1,22 @@
-<%= title "Program version #{@program_entry.program.version}" %>
+<%= title "Version du programme #{@program_entry.program.version}" %>
 
 <%= content_for :sub_menu do %> 
-  <%= link_to 'Edit', edit_program_entry_path(@program_entry) %> 
-  <%= link_to "Back to #{@program_entry.program.version}", @program_entry.program %> 
+  <%= link_to 'Editer', edit_program_entry_path(@program_entry) %> 
+  <%= link_to "Retour vers #{@program_entry.program.version}", @program_entry.program %> 
 <% end %>
 
 <%= content_for :created_and_modified do %> 
-    Created: <%= l @program_entry.created_at %> -- Modified: <%= l @program_entry.updated_at %> 
+    Créé le: <%= l @program_entry.created_at %> -- Modifié le: <%= l @program_entry.updated_at %> 
 <% end %>
 
-  <div class="in_a_form"> Slot: <%= @program_entry.slot %> </div>
+  <div class="in_a_form"> Créneau: <%= @program_entry.slot %> </div>
   <div class="in_a_form"> Track: <%= @program_entry.track %> </div>
   <div class="in_a_form"> Session: 
            <% if ! @program_entry.session.nil? %> 
               <%= @program_entry.session.id %>  
               <%= link_to w(@program_entry.session.title), @program_entry.session %> </div>
            <% end %> 
-  <div class="in_a_form"> Comment: <%= w @program_entry.comment %> </div>
-  <div class="in_a_form"> Span entire row: <%= @program_entry.span_entire_row %> </div>
+  <div class="in_a_form"> Commentaire: <%= w @program_entry.comment %> </div>
+  <div class="in_a_form"> S'étendre sur toute la durée: <%= @program_entry.span_entire_row %> </div>
 
 
