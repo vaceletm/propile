@@ -1,7 +1,7 @@
 = form_for @archived_presenter do |f|
   -if @archived_presenter.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@archived_presenter.errors.count, "erreur")} interdit ce archived_presenter d'&ecirc;tre sauv&eacute;:"
+      %h2= "#{pluralize(@archived_presenter.errors.count, "erreur")} interdit ce archived_presenter d'être sauvé:"
       %ul
         - @archived_presenter.errors.full_messages.each do |msg|
           %li= msg
