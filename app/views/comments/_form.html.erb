@@ -6,7 +6,7 @@
 <% if !comment.body.blank? %> <div class="editing"> <% end %> 
 
 <% if !comment.body.blank? %>
-<h4><%= collapse_button_initially_open ("comment_preview")%> Preview of the comment</h4>
+<h4><%= collapse_button_initially_open ("comment_preview")%> Previlisation de commentaire</h4>
   <div id="comment_preview" class="comment">
     <%= render 'comments/show', :comment => comment  %>
   </div>
@@ -25,9 +25,9 @@
       <% if !comment.body.blank? %>
         <%= link_to 'Cancel Comment Creation', comment.review.session %>  
       <% end %>
-      <i>When you create the comment, the session presenter(s) receive an email. 
+      <i>Quand vous créez le commentaire, le(s) présentateur(s) de la session reçois(reçoivent) un courriel. 
         <% if Propile::Application.config.action_mailer.delivery_method == :test %>
-          <br/>!!!  Mail is not sent in test environment !!!
+          <br/>!!!  Le message n'est pas envoyé en environnement de teste !!!
         <% end %>
       </i>
     <% else %>
