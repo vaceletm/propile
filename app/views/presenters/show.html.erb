@@ -10,8 +10,8 @@
 <% end %>
 
 <%= content_for :created_and_modified do %> 
-  Créé par: <%= l @presenter.created_at %> -- 
-  Modifié par: <%= l @presenter.updated_at %> 
+  Créé le: <%= l @presenter.created_at %> -- 
+  Modifié le: <%= l @presenter.updated_at %> 
 <% end %>
 
   <% if @presenter.profile_image.present? %>
