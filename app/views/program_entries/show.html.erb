@@ -6,7 +6,7 @@
 <% end %>
 
 <%= content_for :created_and_modified do %> 
-    Créé par: <%= l @program_entry.created_at %> -- Modifié par: <%= l @program_entry.updated_at %> 
+    Créé le: <%= l @program_entry.created_at %> -- Modifié le: <%= l @program_entry.updated_at %> 
 <% end %>
 
   <div class="in_a_form"> Créneau: <%= @program_entry.slot %> </div>
