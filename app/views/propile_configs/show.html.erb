@@ -1,22 +1,22 @@
 <%= content_for :sub_menu do %> 
-  <%= link_to 'Edit', edit_propile_config_path(@propile_config) %> |
-  <%= link_to 'Back', propile_configs_path %>
+  <%= link_to 'Editer', edit_propile_config_path(@propile_config) %> |
+  <%= link_to 'Retour', propile_configs_path %>
 <% end %>
 
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>Nom:</b>
   <%= @propile_config.name %>
 </p>
 
 <p>
-  <b>Value:</b>
+  <b>Valeur:</b>
   <%= @propile_config.value %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>Déscription:</b>
   <%= @propile_config.description %>
 </p>
 
