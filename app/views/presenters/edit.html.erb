@@ -5,8 +5,8 @@
 <% end %>
 
 <%= content_for :created_and_modified do %> 
-  Created: <%= l @presenter.created_at %> -- 
-  Modified: <%= l @presenter.updated_at %> 
+  Créé par: <%= l @presenter.created_at %> -- 
+  Modifié par: <%= l @presenter.updated_at %> 
 <% end %>
 
 <%= render 'form' %>
