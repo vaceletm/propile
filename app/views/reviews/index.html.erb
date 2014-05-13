@@ -6,8 +6,8 @@
 <table class="tablelist">
   <tr>
     <th>Session</th>
-    <th>Review by</th>
-    <th>Score</th>
+    <th>Revue par</th>
+    <th>Note</th>
     <th></th>
     <th></th>
   </tr>
@@ -17,8 +17,8 @@
     <td><%= review.session && w(review.session.title) %></td>
     <td><%= w review.presenter.name %></td>
     <td><%= review.score %></td>
-    <td><%= link_to 'Show', review %></td>
-    <td><%= guarded_link_to 'Edit', controller: 'reviews', action: 'edit', id: review  %></td>
+    <td><%= link_to 'Voir', review %></td>
+    <td><%= guarded_link_to 'Editer', controller: 'reviews', action: 'edit', id: review  %></td>
     </tr>
 <% end %>
 </table>
