@@ -1,22 +1,22 @@
 
-<h3>Review  by <%= link_to w(review.presenter.name), review.presenter %> </h3>
+<h3>Revue par <%= link_to w(review.presenter.name), review.presenter %> </h3>
 
-What I like:
+Ce que j'aime:
 <div class="lessoutlined"> 
   <%= wikinize(review.things_i_like) %>
 </div>
-Improvement opportunities:
+Les pistes d'améliorations':
 <div class="lessoutlined"> 
   <%= wikinize(review.things_to_improve) %>
 </div>
 <div class="reviewcontenttitle">
-  This session gets a <%= review.score %> / 10.
+  La session a optenu <%= review.score %> / 10.
 </div>
 
 <% if !review.new_record? %> 
 <div class="alignright">
-  Review Created: <%= l review.created_at %> -- 
-  Modified: <%= l review.updated_at %> 
-  by <%= link_to w(review.presenter.name), review.presenter %>
+  Revue crée le: <%= l review.created_at %> -- 
+  Modifié le: <%= l review.updated_at %> 
+  par <%= link_to w(review.presenter.name), review.presenter %>
 </div>
 <% end %>
