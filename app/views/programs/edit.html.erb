@@ -6,8 +6,8 @@
   <i> Cette page est pour les modérateurs seulement </i>
 <% end %>
 <%= content_for :created_and_modified do %> 
-  Créé par: <%= l @program.created_at %> -- 
-  Modifié par: <%= l @program.updated_at %> 
+  Créé le: <%= l @program.created_at %> -- 
+  Modifié le: <%= l @program.updated_at %> 
 <% end %>
 
 <h3>Info for this program version <%= collapse_button ("programInfo") %> </h3>
@@ -45,8 +45,8 @@
       </tr>
     <% end %> 
     <tr>
-      <td><%= link_to 'all', controller: 'programs', action: 'show', id: @program.to_param, format: "pdf" %> </td>
-      <td><%= link_to 'all', controller: 'programs', action: 'program_board_cards', id: @program.to_param, format: "pdf" %> </td>
+      <td><%= link_to 'tout', controller: 'programs', action: 'show', id: @program.to_param, format: "pdf" %> </td>
+      <td><%= link_to 'tout', controller: 'programs', action: 'program_board_cards', id: @program.to_param, format: "pdf" %> </td>
       <td> <%= @program.sessionsInProgram.size %> </td>
     </tr>
   </table>
@@ -63,8 +63,8 @@
 <h3>Program properties <%= collapse_button ("programProperties") %> </h3>
 <div id="programProperties" style="display:none;">
   <%= render 'form' %>
-  PAF moyen = <%= @program.avgpaf.nil? ? "non encore calculaté" : @program.avgpaf %> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
-  <%= link_to '(re-)calculer le PAF de ce programme', controller: 'programs', action: 'calculate_paf', id: @program.to_param %>   
+  FAP moyen = <%= @program.avgpaf.nil? ? "non encore calculaté" : @program.avgpaf %> &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
+  <%= link_to '(re-)calculer le FAP de ce programme', controller: 'programs', action: 'calculate_paf', id: @program.to_param %>   
 </div>
 <br />
 
