@@ -9,28 +9,28 @@
   </div>
   <br />
   <div>
-    <%= f.label :email %> <i><%= current_account.maintainer? ? "(only maintainers can modify)" : ""  %></i> 
+    <%= f.label :email %> <i><%= current_account.maintainer? ? "(Seulement les moderateurs peuvent le modifier)" : ""  %></i> 
   </div>
   <div>
     <%= text_field :presenter, :email, :disabled => (!current_account.maintainer?), :size => "100" %> 
   </div>
   <br />
   <div>
-    <%= f.label :profile_image %> <i>Link to an online profile image (max 200x200 pixels)</i>
+    <%= f.label :profile_image %> <i>Lien vers une image du profile en ligne (max 200x200 pixels)</i>
   </div>
   <div>
     <%= text_field :presenter, :profile_image, :size => 128 , :maxlength => 1024 %>
   </div>
   <br />
     <div>
-    <%= f.label :website %> <i>Link to your blog, company website...</i>
+    <%= f.label :website %> <i>Lien vers votre blog, site de votre entreprise...</i>
   </div>
   <div>
     <%= text_field :presenter, :website, :size => 128 , :maxlength => 1024 %>
   </div>
   <br />
     <div>
-    <%= f.label :twitter_id %> <i>in the format @username</i>
+    <%= f.label :twitter_id %> <i>dans le format @username</i>
   </div>
   <div>
     <%= text_field :presenter, :twitter_id, :size => 128 , :maxlength => 128 %>
@@ -39,7 +39,7 @@
   <% if current_account.maintainer? %>
     <div>
       <%= f.select :role, [Account::Maintainer, Account::Presenter]  %>
-      <i>(only maintainers see or modify this) </i> 
+      <i>(Seulement les moderateurs peuvent le voir et le modifier) </i> 
     </div>
   <% end %>
   <br />
