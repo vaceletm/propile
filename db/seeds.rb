@@ -5,7 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
 [ Account, ArchivedPresenter, Comment, Presenter, ProgramEntry, Program, PropileConfig, Review, Session, Vote ].each &:delete_all
 
 module ActiveModel 
@@ -90,12 +89,12 @@ Session.create!(
   sub_title: nil,
   short_description: nil,
   session_type: nil,
-  topic: 'other',
-  duration: nil,
+  topic: 'organization',
+  duration: '50 min',
   intended_audience: nil,
   experience_level: nil,
   max_participants: nil,
-  laptops_required: 'no',
+  laptops_required: 'non',
   other_limitations: nil,
   room_setup: nil,
   materials_needed: nil,
